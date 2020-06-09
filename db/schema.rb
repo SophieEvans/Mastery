@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_151310) do
+ActiveRecord::Schema.define(version: 2020_06_09_182134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(version: 2020_06_09_151310) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "interactions", force: :cascade do |t|
+    t.datetime "viewed_on"
+    t.bigint "user_id", null: false
+    t.bigint "video_id", null: false
+    t.boolean "favourite", default: false, null: false
+    t.boolean "viewed", default: false, null: false
+    t.integer "difficulty"
+    t.integer "rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_interactions_on_user_id"
+    t.index ["video_id"], name: "index_interactions_on_video_id"
   end
 
   create_table "sub_categories", force: :cascade do |t|
@@ -55,6 +69,8 @@ ActiveRecord::Schema.define(version: 2020_06_09_151310) do
     t.index ["user_id"], name: "index_videos_on_user_id"
   end
 
+  add_foreign_key "interactions", "users"
+  add_foreign_key "interactions", "videos"
   add_foreign_key "sub_categories", "categories"
   add_foreign_key "videos", "sub_categories"
   add_foreign_key "videos", "users"

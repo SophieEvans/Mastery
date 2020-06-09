@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+gabriel = User.create!(email: "gabrieldcpaiva@gmail.com", password: "123456")
+sophie = User.create!(email: "sophie@gmail.com", password: "654321")
+
+skate = Category.create!(name: "Skate")
+
+backflip = SubCategory.create!(name: "Backflip", category_id: skate.id)
+
+video = Video.create!(drill: true, tutorial: true, rating: 0, difficulty: 1,
+  user_id: gabriel.id, sub_category_id: backflip.id, you_tube_key: "uC5tlDPxwAU")
+
+interaction1 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
+  video_id: video.id, viewed: true)

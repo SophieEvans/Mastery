@@ -1,0 +1,14 @@
+<h1>Let's master something!</h1>
+
+<h2>Category buttons go here</h2>
+
+<h3>Collection of popular videos goes here</h3>
+
+<div class="cards">
+  <% @videos.each do |video| %>
+    <%= link_to video_path(video) do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg)">
+      </div>
+    <% end %>
+  <% end %>
+</div>

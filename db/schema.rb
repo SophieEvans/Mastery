@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_182134) do
+ActiveRecord::Schema.define(version: 2020_06_10_182813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_182134) do
     t.boolean "drill", default: false, null: false
     t.boolean "tutorial", default: false, null: false
     t.integer "rating"
-    t.integer "difficulty"
+    t.string "difficulty"
     t.bigint "user_id", null: false
     t.bigint "sub_category_id", null: false
     t.string "you_tube_key"

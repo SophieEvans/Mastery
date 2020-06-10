@@ -1,14 +1,20 @@
-<h1>Tutorial/Drill Title</h1>
+<div class=main_container>
 
-<div class="cards">
-   <div class="card-trip">
-      <%= image_tag "marc-kleen-Jo025H0ILaM-unsplash (1).jpg" %>
-      <div class="card-trip-infos">
-        <div>
-          <p><%= @video.sub_category %></p>
+  <h1>Tutorial/Drill Title</h1>
+
+  <div class="cards">
+     <div class="card-trip">
+        <iframe id="ytplayer" type="text/html" width="100%" height="100%"
+          src="https://www.youtube.com/embed/<%= @video.you_tube_key %>?autoplay=1"
+          frameborder="0"></iframe>
+        <div class="card-trip-infos">
+          <div>
+            <p><%= @video.sub_category %></p>
+          </div>
+            <h2 class="card-trip-pricing">39 Votes</h2>
         </div>
-          <h2 class="card-trip-pricing">39 Votes</h2>
-          <i class="fab fa-instagram card-trip-user avatar-bordered"></i>
-      </div>
+    </div>
   </div>
+
 </div>
+

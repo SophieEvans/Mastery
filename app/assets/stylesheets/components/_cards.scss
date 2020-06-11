@@ -54,13 +54,12 @@ grid-gap: 32px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  height: 320;
 }
 
 .card-trip > img {
-  height: 360px;
-  width: 640px;
-  object-fit: cover;
+  width: 100%;
+  padding: 24px;
+  object-fit: fill;
 }
 
 .card-trip h2 {

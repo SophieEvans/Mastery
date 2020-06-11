@@ -14,6 +14,8 @@ grid-gap: 32px;
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
     grid-template-columns: 1fr;
+  }.card-video > img {
+    height: 280px;
   }
 }
 
@@ -22,12 +24,18 @@ grid-gap: 32px;
   .cards {
     grid-template-columns: 1fr;
   }
+  .card-video > img {
+    height: 388px;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .card-video > img {
+    height: 168px;
   }
 }
 
@@ -36,12 +44,18 @@ grid-gap: 32px;
   .cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+  .card-video > img {
+    height: 168px;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  .card-video > img {
+    height: 168px;
   }
 }
 
@@ -50,32 +64,32 @@ grid-gap: 32px;
   padding: 27px;
 }
 
-.card-trip {
+.card-video {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-trip > img {
+.card-video > img {
   width: 100%;
   padding: 24px;
-  object-fit: fill;
+  object-fit: cover;
 }
 
-.card-trip h2 {
+.card-video h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-trip p {
+.card-video p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
 
 
-.card-trip .card-trip-infos {
+.card-video .card-video-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -83,7 +97,7 @@ grid-gap: 32px;
   position: relative;
 }
 
-.card-trip-infos .card-trip-user {
+.card-video-infos .card-video-user {
   position: absolute;
   right: 16px;
   top: -20px;

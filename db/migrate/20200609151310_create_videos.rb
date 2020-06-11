@@ -4,7 +4,7 @@ class CreateVideos < ActiveRecord::Migration[6.0]
       t.boolean :drill, null: false, default: false
       t.boolean :tutorial, null: false, default: false
       t.integer :rating
-      t.string :integer
+      t.string :difficulty
       t.references :user, null: false, foreign_key: true
       t.references :sub_category, null: false, foreign_key: true
       t.string :you_tube_key

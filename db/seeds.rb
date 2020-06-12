@@ -33,7 +33,7 @@ interaction2 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
 straight = SubCategory.create!(name: "Straight", category_id: handstands.id)
 # videos and interactions
 video_straight = Video.create!(title: "How to do a Handstand", rating: 0, difficulty: "Advanced",
-  user_id: gabriel.id, sub_category_id: video_straight.id, you_tube_key: "ZH3PkhtOUwg")
+  user_id: gabriel.id, sub_category_id: straight.id, you_tube_key: "ZH3PkhtOUwg")
 interaction2a = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_straight.id, viewed: true)
 

@@ -18,6 +18,7 @@ grid-gap: 32px;
   .card-video > img {
     height: 240px;
   }
+}
   .cards-show {
     grid-template-columns: 1fr;
   }
@@ -26,6 +27,7 @@ grid-gap: 32px;
     height: 240px;
   }
 
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .cards {
@@ -33,9 +35,6 @@ grid-gap: 32px;
   }
   .card-video > img {
     height: 388px;
-  }
-    .card-category {
-    width:100%;
   }
 }
 
@@ -47,9 +46,6 @@ grid-gap: 32px;
   .card-video > img {
     height: 168px;
   }
-    .card-category {
-    width:100%;
-  }
 }
 
 // Large devices (desktops, 992px and up)
@@ -60,9 +56,6 @@ grid-gap: 32px;
   .card-video > img {
     height: 168px;
   }
-    .card-category {
-    width:100%;
-  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -72,9 +65,6 @@ grid-gap: 32px;
   }
   .card-video > img {
     height: 168px;
-  }
-    .card-category {
-    width:100%;
   }
 }
 

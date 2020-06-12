@@ -13,7 +13,6 @@ handstands = Category.create!(name: "Handstands")
 # subcategory
 one_armed = SubCategory.create!(name: "One-armed handstand", category_id: handstands.id)
 hollowback = SubCategory.create!(name: "Hollowback", category_id: handstands.id)
-straight = SubCategory.create!(name: "Straight", category_id: handstands.id)
 # videos and interactions
 video_one_armed = Video.create!(title: "One arm handstand", rating: 0, difficulty: "Advanced",
   user_id: gabriel.id, sub_category_id: one_armed.id, you_tube_key: "f7bOSY83548")
@@ -30,6 +29,13 @@ video_one_armed2 = Video.create!(title: "How to do a One-Handed Handstand", rati
 interaction2 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_one_armed.id, viewed: true)
 
+# subcategory
+straight = SubCategory.create!(name: "Straight", category_id: handstands.id)
+# videos and interactions
+video_straight = Video.create!(title: "How to do a Handstand", rating: 0, difficulty: "Advanced",
+  user_id: gabriel.id, sub_category_id: video_straight.id, you_tube_key: "ZH3PkhtOUwg")
+interaction2a = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
+  video_id: video_straight.id, viewed: true)
 
 # category
 flips = Category.create!(name: "Flips")

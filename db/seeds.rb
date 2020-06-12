@@ -43,6 +43,8 @@ flips = Category.create!(name: "Flips")
 backflip = SubCategory.create!(name: "Backflip", category_id: flips.id)
 aerial = SubCategory.create!(name: "Aerial", category_id: flips.id)
 backside = SubCategory.create!(name: "Backside", category_id: flips.id)
+pike = SubCategory.create!(name: "Pike", category_id: flips.id)
+
 # videos and interactions
 
 video_backflip = Video.create!(title: "How to do a backflip", rating: 0, difficulty: "Intermediate",

@@ -1,0 +1,58 @@
+.search-form-control {
+  position: relative;
+  width: 40%;
+}
+
+.search-form-control .btn {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+}
+
+.search-form-control .form-control {
+  height: 3.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+}
+
+.search-form-control .form-control:focus {
+  border: 1px solid #1EDD88;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .search-form-control {
+    width: 100%;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .search-form-control {
+    width: 100%;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .search-form-control {
+    width: 50%;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .search-form-control {
+    width: 40%;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .search-form-control {
+    width: 40%;
+  }
+}

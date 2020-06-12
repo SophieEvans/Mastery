@@ -16,7 +16,7 @@ sophie = User.create!(email: "sophie@gmail.com", password: "654321")
 # category
 handstands = Category.create!(name: "Handstands")
 # subcategory
-one_armed = SubCategory.create!(name: "One-armed handstand", category_id: handstands.id)
+one_armed = SubCategory.create!(name: "Handstand", category_id: handstands.id)
 hollowback = SubCategory.create!(name: "Hollowback", category_id: handstands.id)
 # videos and interactions
 video_one_armed = Video.create!(title: "One arm handstand", rating: 0, difficulty: "Advanced",

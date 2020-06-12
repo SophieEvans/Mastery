@@ -11,14 +11,12 @@
   width: 40px;
   }
 
-a.navbar-brand {
-  position: relative;
+h1#mastery {
+  color: #313132;
+  justify-items: left;
 }
 
-.mastery h1 {
-  color: #313132;
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  right: 8px;
+.logo {
+  float: left;
+  margin-right: 8px;
 }

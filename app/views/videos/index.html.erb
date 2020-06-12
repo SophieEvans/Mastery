@@ -18,32 +18,21 @@
   </h2>
 
 
-  <div class="container">
-    <div class="row">
+  <div id="container-filter" class="container p-0 m-0">
+<!--     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <div class="form-post">
-          <%= form_tag videos_path, method: :get do %>
-              <%= check_box_tag :query,
-                params[:query]
-                %>
-            <div class="form-group">
-              <div class="category-choices">
-                <% SubCategory.all.each do |category| %>
-                  <input type="checkbox" class="hidden" value="<%= category.id %>" name="post[category_ids][]" id="post_category_ids_<%= category.id %>">
-                  <label class="category-choice" for="post_category_ids_<%= category.id %>">
-                    <%= category.name %>
-                  </label>
-                <% end %>
-               </div>
-            </div>
-          <%= submit_tag "Find videos", class: "btn btn-secondary"  %>
-          <% end %>
+        <div class="form-post"> -->
+          <div class="category-choices">
+            <% SubCategory.all.each do |category| %>
+                <%= link_to category.name, videos_path(sub_category: category.name), class: "category-choice" %>
+            <% end %>
+           </div>
         </div>
-      </div>
-    </div>
-  </div>
+<!--       </div> -->
+<!--     </div>
+  </div> -->
 
-<h2>Top Videos</h2>
+<h3>Your Videos</h3>
   <div class="cards">
     <% @videos.each do |video| %>
       <%= link_to video_path(video) do %>
@@ -51,7 +40,7 @@
           <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
             <div class="card-video-infos">
               <div>
-                <p><%= video.sub_category.name %></p>
+                <h3><%= video.sub_category.name %></h3>
                 <p> other labels go here </p>
               </div>
                 <h2 class="card-video-pricing">39 Votes</h2>

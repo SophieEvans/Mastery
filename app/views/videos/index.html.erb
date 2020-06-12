@@ -1,26 +1,35 @@
 <div class=main_container>
 
-  <h1>Let's master something!</h1>
+  <h1>Let's master gymnastics!</h1>
 
-  <h2>Search goes here</h2>
+  <h2>
+    <%= form_tag videos_path, method: :get do %>
+      <div class="search-form-control form-group">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a trick"
+        %>
+        <%= submit_tag "Search", class: "btn btn-flat" do %>
+          <i class="fas fa-search"></i> Search
+          <% end %>
+      </div>
+    <% end %>
+  </h2>
 
   <h2>Category buttons with dropdowns for subcategories go here</h2>
-
-  <h3>Collection of popular videos goes here</h3>
 
   <div class="cards">
     <% @videos.each do |video| %>
       <%= link_to video_path(video) do %>
-        <div class="card-trip">
-          <iframe id="ytplayer" type="text/html" width="100%" height="100%"
-            src="https://www.youtube.com/embed/<%= video.you_tube_key %>"
-            frameborder="0"></iframe>
-            <div class="card-trip-infos">
+        <div class="card-video">
+          <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
+            <div class="card-video-infos">
               <div>
                 <p><%= video.sub_category.name %></p>
                 <p> other labels go here </p>
               </div>
-                <h2 class="card-trip-pricing">39 Votes</h2>
+                <h2 class="card-video-pricing">39 Votes</h2>
             </div>
         </div>
       <% end %>

@@ -29,10 +29,11 @@
 .category-choice {
   background: #b7b7b7;
   padding: 16px;
-  border-radius: 72px;
+  border-radius: 24px;
   opacity: .4;
-  flex: 0 0 16%;
+  flex: 0 0 48%;
   text-align: center;
+  margin-bottom: 8px;
   &:hover {
     opacity: 1;
     cursor: pointer;

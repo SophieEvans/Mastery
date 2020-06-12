@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_210211) do
     t.boolean "drill", default: false, null: false
     t.boolean "tutorial", default: false, null: false
     t.integer "rating"
-    t.string "integer"
+    t.string "difficulty"
     t.bigint "user_id", null: false
     t.bigint "sub_category_id", null: false
     t.string "you_tube_key"

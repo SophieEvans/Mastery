@@ -44,13 +44,14 @@ aerial = SubCategory.create!(name: "Aerial", category_id: flips.id)
 backside = SubCategory.create!(name: "Backside", category_id: flips.id)
 # videos and interactions
 
-video_backflip = Video.create!(title: "Tutorial of how to do a backflip", rating: 0, difficulty: "Intermediate",
-  user_id: gabriel.id, drill: false, tutorial: true, sub_category_id: backflip.id, you_tube_key: "VIcdyNfwe5Q")
+video_backflip = Video.create!(title: "How to do a backflip", rating: 0, difficulty: "Intermediate",
+  user_id: gabriel.id, sub_category_id: backflip.id, you_tube_key: "VIcdyNfwe5Q")
 interaction3 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_backflip.id, viewed: true)
 
-video_backflip1 = Video.create!(title: "Backflip on the ground tutorial (explained)", rating: 0, difficulty: "Intermediate",
-  user_id: gabriel.id, drill: false, tutorial: true, sub_category_id: backflip.id, you_tube_key: "gBm1nAM_tww")
+video_backflip1 = Video.create!(title: "Backflip on the ground", rating: 0, difficulty: "Intermediate",
+  user_id: gabriel.id, sub_category_id: backflip.id, you_tube_key: "gBm1nAM_tww")
+
 interaction4 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_backflip1.id, viewed: true)
 

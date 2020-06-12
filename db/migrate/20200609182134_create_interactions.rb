@@ -6,7 +6,7 @@ class CreateInteractions < ActiveRecord::Migration[6.0]
       t.references :video, null: false, foreign_key: true
       t.boolean :favourite, null: false, default: false
       t.boolean :viewed, null: false, default: false
-      t.integer :difficulty
+      t.string :difficulty
       t.integer :rating
 
       t.timestamps

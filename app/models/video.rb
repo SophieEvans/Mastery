@@ -2,10 +2,6 @@ class Video < ApplicationRecord
   belongs_to :user
   belongs_to :sub_category
   has_many :categories, through: :sub_categories
-
-  validates :drill, presence: { unless: :tutorial? }
-  validates :tutorial, presence: { unless: :drill? }
-
   has_many :interactions, dependent: :destroy
 
   include PgSearch::Model

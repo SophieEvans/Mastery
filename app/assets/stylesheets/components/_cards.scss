@@ -14,8 +14,9 @@ grid-gap: 32px;
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
     grid-template-columns: 1fr;
-  }.card-video > img {
-    height: 280px;
+  }
+  .card-video > img {
+    height: 10%;
   }
 }
 

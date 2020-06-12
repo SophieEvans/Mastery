@@ -21,3 +21,19 @@
 .footer-links a:hover {
   opacity: 1;
 }
+
+.list-icons {
+  font-size: xx-large;
+  display: flex;
+  background-color: #FF452E;
+  justify-content: space-around;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+.list-icons a {
+  color: whitesmoke;;
+}
+.list-icons a:hover {
+  color: lightgray;
+}

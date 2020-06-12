@@ -68,12 +68,15 @@ grid-gap: 32px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: #FF452E;
+  text-decoration: none;
 }
 
 .card-video > img {
   width: 100%;
   padding: 24px;
   object-fit: cover;
+  text-decoration: none;
 }
 
 .card-video h2 {
@@ -82,12 +85,18 @@ grid-gap: 32px;
   margin: 0;
 }
 
-.card-video p {
+.card-video h3 {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
 
+.card-video p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  color: gray;
+}
 
 .card-video .card-video-infos {
   padding: 16px;
@@ -102,6 +111,10 @@ grid-gap: 32px;
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.card-video-pricing {
+  color: gray;
 }
 
 .card-category {

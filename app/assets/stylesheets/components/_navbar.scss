@@ -9,4 +9,16 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  }
+
+a.navbar-brand {
+  position: relative;
+}
+
+.mastery h1 {
+  color: #313132;
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
 }

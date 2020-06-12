@@ -1,12 +1,23 @@
 <div class=main_container>
 
-  <h1>Let's master something!</h1>
+  <h1>Let's master gymnastics!</h1>
 
-  <h2>Search goes here</h2>
+  <h2>
+    <%= form_tag videos_path, method: :get do %>
+      <div class="search-form-control form-group">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a trick"
+        %>
+        <%= submit_tag "Search", class: "btn btn-flat" do %>
+          <i class="fas fa-search"></i> Search
+          <% end %>
+      </div>
+    <% end %>
+  </h2>
 
   <h2>Category buttons with dropdowns for subcategories go here</h2>
-
-  <h3>Collection of popular videos goes here</h3>
 
   <div class="cards">
     <% @videos.each do |video| %>

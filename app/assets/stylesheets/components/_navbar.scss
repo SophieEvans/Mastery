@@ -5,6 +5,11 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  font-size: 40px;
+}
+
+.fas {
+  padding-right: 15px;
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -19,4 +24,25 @@ h1#mastery {
 .logo {
   float: left;
   margin-right: 8px;
+}
+
+.navbar-lewagon .navbar-collapse a {
+  color: #FF452E;
+}
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .navbar-lewagon .navbar-collapse {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    background-color: #FF452E;
+  }
+  .navbar-lewagon .navbar-collapse a {
+    color: #FF452E;
+  }
+  .navbar-lewagon .navbar-collapse a {
+    color: whitesmoke;
+  }
 }

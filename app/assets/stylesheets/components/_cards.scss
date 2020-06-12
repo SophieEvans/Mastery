@@ -16,7 +16,14 @@ grid-gap: 32px;
     grid-template-columns: 1fr;
   }
   .card-video > img {
-    height: 10%;
+    height: 240px;
+  }
+  .cards-show {
+    grid-template-columns: 1fr;
+  }
+  #ytplayer1 {
+    width: 100%;
+    height: 240px;
   }
 }
 

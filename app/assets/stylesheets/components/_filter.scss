@@ -29,7 +29,7 @@
 .category-choice {
   background: #b7b7b7;
   padding: 16px;
-  border-radius: 5px;
+  border-radius: 72px;
   opacity: .4;
   flex: 0 0 16%;
   text-align: center;
@@ -42,4 +42,8 @@
   color: white;
   opacity: 1;
   }
+}
+
+#container-filter {
+  max-width: 100%;
 }

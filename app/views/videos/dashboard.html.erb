@@ -1,7 +1,7 @@
 <div class=main_container>
 <h2>rookie 6/6 level mastered 🤙🏽 </h2>
   <div class="cards">
-    <% @videos.rookie.each do |video| %>
+    <% @videos.sub_category.rookie.each do |video| %>
       <%= link_to video_path(video) do %>
         <div class="card-video" id="results">
           <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
@@ -20,7 +20,7 @@
 
 <h2>intermediate 3/8 level mastery within reach</h2>
   <div class="cards">
-    <% @videos.intermediate.each do |video| %>
+    <% @videos.sub_category.intermediate.each do |video| %>
       <%= link_to video_path(video) do %>
         <div class="card-video" id="results">
           <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
@@ -39,7 +39,7 @@
 
 <h2>pro 0/10 level not yet mastered</h2>
 <div class="cards">
-    <% @videos.pro.each do |video| %>
+    <% @videos.sub_category.pro.each do |video| %>
       <%= link_to video_path(video) do %>
         <div class="card-video" id="results">
           <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">

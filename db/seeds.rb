@@ -25,22 +25,22 @@ kickflip = SubCategory.create!(name: "kickflip", category_id: rookie.id)
 casperflip = SubCategory.create!(name: "casper flip", category_id: rookie.id)
 # videos and interactions
 video_ollie = Video.create!(title: "ollie slo-mo", rating: 22, difficulty: "rookie",
-  user_id: gabriel.id, drill: false, tutorial: true, sub_category_id: ollie.id, you_tube_key: "QjuuRA-b94I")
+  user_id: gabriel.id, sub_category_id: ollie.id, you_tube_key: "QjuuRA-b94I")
 interaction = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_ollie.id, viewed: true)
 
 video_ollie2 = Video.create!(title: "ollie from above", rating: 75, difficulty: "rookie",
-  user_id: gabriel.id, drill: false, tutorial: true, sub_category_id: ollie.id, you_tube_key: "4-Y8Dsmh7fE")
+  user_id: gabriel.id, sub_category_id: ollie.id, you_tube_key: "4-Y8Dsmh7fE")
 interaction1 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_ollie2.id, viewed: true)
 
 video_ollie3 = Video.create!(title: "high ollie", rating: 54, difficulty: "rookie",
-  user_id: gabriel.id, drill: false, tutorial: true, sub_category_id: ollie.id, you_tube_key: "ewS6fbFszo8")
+  user_id: gabriel.id, sub_category_id: ollie.id, you_tube_key: "ewS6fbFszo8")
 interaction2 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_ollie3.id, viewed: true)
 
 video_nollie = Video.create!(title: "crack nollie", rating: 78, difficulty: "rookie",
-  user_id: gabriel.id, sub_category_id: nolle.id, you_tube_key: "6N_Ku9HlhgA")
+  user_id: gabriel.id, sub_category_id: nollie.id, you_tube_key: "6N_Ku9HlhgA")
 interaction2a = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_nollie.id, viewed: true)
 
@@ -61,7 +61,7 @@ intermediate = Category.create!(name: "intermediate")
 varial_kickflip = SubCategory.create!(name: "varial kickflip", category_id: intermediate.id)
 frontside_pop_shove_it = SubCategory.create!(name: "frontside pop shove it", category_id: intermediate.id)
 frontside_180_ollie = SubCategory.create!(name: "frontside 180 ollie", category_id: intermediate.id)
-50_50_grind = SubCategory.create!(name: "50-50 grind", category_id: intermediate.id)
+fifty_fifty_grind = SubCategory.create!(name: "50-50 grind", category_id: intermediate.id)
 # videos and interactions
 
 video_varial_kickflip = Video.create!(title: "varial kickflip", rating: 101, difficulty: "Intermediate",
@@ -75,7 +75,7 @@ interaction4 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_frontside_pop_shove_it.id, viewed: true)
 
 video_frontside_180_ollie = Video.create!(title: "frontside 180 ollie", rating: 44, difficulty: "Intermediate",
-  user_id: gabriel.id, drill: false, tutorial: true, sub_category_id: frontside_180_ollie.id, you_tube_key: "CJqXUfM67mU")
+  user_id: gabriel.id, sub_category_id: frontside_180_ollie.id, you_tube_key: "CJqXUfM67mU")
 interaction5 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_frontside_180_ollie.id, viewed: true)
 

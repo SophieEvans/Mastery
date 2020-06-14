@@ -19,6 +19,10 @@ class VideosController < ApplicationController
   end
 
   def dashboard
-    @videos = policy_scope(Video)
+    if params[:category]
+      category_name = params[:category]
+      category = Category.find_by_name(category_name)
+      @videos = category.videos
+    end
   end
 end

@@ -17,4 +17,8 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     authorize @video
   end
+
+  def dashboard
+    @videos = policy_scope(Video)
+  end
 end

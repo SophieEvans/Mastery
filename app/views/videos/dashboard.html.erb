@@ -1,0 +1,58 @@
+<div class=main_container>
+<h2>rookie 6/6 level mastered 🤙🏽 </h2>
+  <div class="cards">
+    <% @videos.rookie.each do |video| %>
+      <%= link_to video_path(video) do %>
+        <div class="card-video" id="results">
+          <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
+            <div class="card-video-infos">
+              <div>
+                <h3><%= video.sub_category.name %></h3>
+                <p> other labels go here </p>
+              </div>
+                <h2 class="card-video-pricing">39 Votes</h2>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+<h2>intermediate 3/8 level mastery within reach</h2>
+  <div class="cards">
+    <% @videos.intermediate.each do |video| %>
+      <%= link_to video_path(video) do %>
+        <div class="card-video" id="results">
+          <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
+            <div class="card-video-infos">
+              <div>
+                <h3><%= video.sub_category.name %></h3>
+                <p> other labels go here </p>
+              </div>
+                <h2 class="card-video-pricing">39 Votes</h2>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+<h2>pro 0/10 level not yet mastered</h2>
+<div class="cards">
+    <% @videos.pro.each do |video| %>
+      <%= link_to video_path(video) do %>
+        <div class="card-video" id="results">
+          <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
+            <div class="card-video-infos">
+              <div>
+                <h3><%= video.sub_category.name %></h3>
+                <p> other labels go here </p>
+              </div>
+                <h2 class="card-video-pricing">39 Votes</h2>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

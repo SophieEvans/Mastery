@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to videos_path, class: "navbar-brand" do %>
-    <%= image_tag "Image from iOS (1).jpg", class: "logo" %>
-    <h1 id="mastery">Mastery</h1>
+    <%= image_tag "Photofox.png", class: "logo" %>
+<!--     <h1 id="mastery">Mastery</h1> -->
     <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,13 +10,13 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <%# if user_signed_in? %>
-          <%= link_to root_path do %>
+          <%= link_to videos_path do %>
             <i class="fas fa-home"></i>
           <% end %>
-          <%= link_to root_path do %>
-            <i class="fas fa-fire"></i>
+          <%= link_to videos_path(@videos, anchor: "search-form-control") do %>
+            <i class="fas fa-search"></i>
           <% end %>
-          <%= link_to root_path do %>
+          <%= link_to dashboard_videos_path do %>
             <i class="fas fa-user-alt"></i>
           <% end %>
         <!p class="nav-item dropdown">

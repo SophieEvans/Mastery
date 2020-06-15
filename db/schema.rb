@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_210211) do
+ActiveRecord::Schema.define(version: 2020_06_15_015545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_210211) do
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "completed", default: false, null: false
     t.index ["user_id"], name: "index_interactions_on_user_id"
     t.index ["video_id"], name: "index_interactions_on_video_id"
   end
@@ -56,16 +57,14 @@ ActiveRecord::Schema.define(version: 2020_06_11_210211) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.boolean "drill", default: false, null: false
-    t.boolean "tutorial", default: false, null: false
     t.integer "rating"
     t.string "difficulty"
     t.bigint "user_id", null: false
     t.bigint "sub_category_id", null: false
     t.string "you_tube_key"
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "title"
     t.index ["sub_category_id"], name: "index_videos_on_sub_category_id"
     t.index ["user_id"], name: "index_videos_on_user_id"
   end

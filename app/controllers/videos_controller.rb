@@ -26,7 +26,7 @@ class VideosController < ApplicationController
           interaction.completed = true
         end
       else
-        @interaction = Interaction.new(user_id: current_user.id, video_id: video_id, completed: true)
+        @interaction = Interaction.create!(user_id: current_user.id, video_id: video_id, completed: true)
       end
     end
   end

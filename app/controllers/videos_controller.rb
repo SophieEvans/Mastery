@@ -19,10 +19,9 @@ class VideosController < ApplicationController
   end
 
   def dashboard
-    if params[:category]
-      category_name = params[:category]
-      category = Category.find_by_name(category_name)
-      @videos = category.videos
-    end
+    @rookie_videos = Video.where(difficulty: "rookie")
+    @intermediate_videos = Video.where(difficulty: "Intermediate")
+    @pro_videos = Video.where(difficulty: "pro")
+    authorize @rookie_videos
   end
 end

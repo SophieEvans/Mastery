@@ -34,6 +34,8 @@ gem 'devise'
 gem 'pundit'
 # search
 gem 'pg_search', '~> 2.3.0'
+# to protect secret data in .env file
+gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

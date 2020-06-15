@@ -57,14 +57,16 @@ ActiveRecord::Schema.define(version: 2020_06_15_015545) do
   end
 
   create_table "videos", force: :cascade do |t|
+    t.boolean "drill", default: false, null: false
+    t.boolean "tutorial", default: false, null: false
     t.integer "rating"
     t.string "difficulty"
     t.bigint "user_id", null: false
     t.bigint "sub_category_id", null: false
     t.string "you_tube_key"
-    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
     t.index ["sub_category_id"], name: "index_videos_on_sub_category_id"
     t.index ["user_id"], name: "index_videos_on_user_id"
   end

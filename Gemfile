@@ -34,13 +34,15 @@ gem 'devise'
 gem 'pundit'
 # search
 gem 'pg_search', '~> 2.3.0'
-# to protect secret data in .env file
-gem 'dotenv-rails', groups: [:development, :test]
+
+# image and video uploading
+gem 'cloudinary'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
-group :development, :test do  gem 'pry-byebug'
+group :development, :test do  
+  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
 

@@ -31,10 +31,42 @@ class VideosController < ApplicationController
     end
   end
 
+  def new
+    @video = Video.new
+  end
+
+  def create
+    @video = Video.new(video_params)
+    if @video.save
+      flash[:success] = "Video successfully created"
+      redirect_to @video
+    else
+      flash[:error] = "Something went wrong"
+      render 'new'
+    end
+  end
+
+  def destroy
+    @video = Video.find(params[:id])
+    if @video.destroy
+      flash[:success] = 'Video was successfully deleted.'
+      redirect_to videos_url
+    else
+      flash[:error] = 'Something went wrong'
+      redirect_to videos_url
+    end
+  end
+
   def dashboard
     @rookie_videos = Video.where(difficulty: "rookie")
     @intermediate_videos = Video.where(difficulty: "Intermediate")
     @pro_videos = Video.where(difficulty: "pro")
     authorize @rookie_videos
+  end
+
+  private
+
+  def video_params
+    params.require(:video).permit(:external_file)
   end
 end

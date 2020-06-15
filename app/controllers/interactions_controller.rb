@@ -3,26 +3,26 @@ class InteractionsController < ApplicationController
     # find the video
     @video = Video.find(params[:video_id])
     # check whether interaction exists (use activerecord find_by method)
-    @interaction = Interaction.find_by(params[user_id: current_user.id], [video_id: @video_id])
+    @interaction = Interaction.find_or_initialize_by(user_id: current_user.id, video_id: @video.id)
+    authorize @interaction
     # if exists we update
-    if @interaction
-      if @interaction.update(interaction_params[completed: !@interaction.completed])
+    if @interaction.persisted?
+      if @interaction.update(interaction_params)
         flash[:success] = "Marked as mastered"
       else
         flash[:error] = "Something went wrong"
       end
     # else we create and set boolean as true
     else
-      @interaction = Interaction.new(user_id: current_user.id, video_id: @video.id, completed: true)
+      @interaction.completed = true
       if @interaction.save
         flash[:success] = "Marked as mastered"
       else
         flash[:error] = "Something went wrong"
       end
       # redirect user to show
-      authorize @interaction
-      redirect_to @video
     end
+    redirect_to @video
   end
 
   private

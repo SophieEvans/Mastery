@@ -6,11 +6,13 @@
     <% @rookie_videos.each do |video| %>
       <%= link_to video_path(video) do %>
         <div class="card-video" id="results">
-          <%# if video.interaction.completed && video.interaction.completed == true %>
-            <!-- <img src="Photofox.png"> -->
-          <%# else %>
+          <% interaction = video.interactions.find {|i| i.user_id == current_user.id} %>
+          <% if interaction && interaction.completed? %>
             <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
-          <%# end %>
+          <% else %>
+            <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
+            <%= image_tag "stamp.png", alt: "stamp", class: "stamp" %>
+          <% end %>
             <div class="card-video-infos">
               <div>
                 <h3><%= video.sub_category.name %></h3>
@@ -31,7 +33,7 @@
       <%= link_to video_path(video) do %>
         <div class="card-video" id="results">
           <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
-            <div class="card-video-infos">
+             <div class="card-video-infos">
               <div>
                 <h3><%= video.sub_category.name %></h3>
                 <p> other labels go here </p>

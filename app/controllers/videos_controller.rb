@@ -16,6 +16,19 @@ class VideosController < ApplicationController
   def show
     @video = Video.find(params[:id])
     authorize @video
+    if params[:completed]
+      video_id = @video.id
+      if Interaction.exists?(user_id: current_user.id, video_id: video_id)
+        interaction = Interaction(user_id: current_user.id, video_id: video_id)
+        if interaction.completed == true
+          interaction.completed = false
+        else
+          interaction.completed = true
+        end
+      else
+        @interaction = Interaction.new(user_id: current_user.id, video_id: video_id, completed: true)
+      end
+    end
   end
 
   def dashboard

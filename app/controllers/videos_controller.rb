@@ -71,6 +71,6 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:external_file, :title, :sub_category_id)
+    params.require(:video).permit(:cloudinary_video_id, :title, :sub_category_id)
   end
 end

@@ -4,10 +4,10 @@
 
   <div class="cards-show">
     <div>
-    <iframe id="ytplayer1" type="text/html" width="853" height="505"
-      src="https://www.youtube.com/embed/<%= @video.you_tube_key %>?autoplay=1"
-      frameborder="0"></iframe>
-      </div>
+      <iframe id="ytplayer1" type="text/html" width="853" height="505"
+        src="https://www.youtube.com/embed/<%= @video.you_tube_key %>?autoplay=1"
+        frameborder="0"></iframe>
+    </div>
 
   <div class="card-category">
     <!-- vvv Gabriel do not touch this code vvv -->
@@ -17,8 +17,18 @@
       <%= link_to "I've mastered it", video_interactions_path(@video, interaction: {completed: true}), method: "POST", class: "category-choice" %>
     <% end %>
     <!-- ^^^ Gabriel do not touch this code go to _cards.scss to change the style ^^^ -->
+
     <i class="fas fa-crown icons"></i>
     <p id="like"> Like <i class="fas fa-thumbs-up"></i></p>
     <p id="helpful"> Useful? <i class="far fa-star"></i></p>
+
+    <div class="icons">
+     <i class="far fa-thumbs-up icons"></i>
+      <i class="far fa-thumbs-down"></i>
+      <p>Did this video help you? Click on this star if so!<i class="far fa-star"></i></p>
+    </div>
+
   </div>
+
   </div>
+</div>

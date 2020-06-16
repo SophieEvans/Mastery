@@ -22,7 +22,7 @@ class InteractionsController < ApplicationController
       end
       # redirect user to show
     end
-    redirect_to @video
+    redirect_to dashboard_videos_path
   end
 
   private

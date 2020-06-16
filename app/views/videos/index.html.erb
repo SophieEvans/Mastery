@@ -1,8 +1,13 @@
 <div class=main_container>
-
-  <h1>Let's master some sick tricks!</h1>
-
-    <h3>Login or SignUp to view tricks by level and record your progress!</h3>
+  <div class=heading-container>
+    <h3 class="grid-heading">Master the tricks & track share, rate</h3>
+    <div>
+      <span>
+    <%= link_to 'Login', new_user_session_path, class: "btn btn-flat", id: "btn-flat-login" %>
+    <%= link_to 'Signup', new_user_registration_path, class: "btn btn-flat", id: "btn-flat-signup" %>
+    </span>
+    </div>
+  </div>
   <div class="cards">
     <% @videos.each do |video| %>
       <%= link_to video_path(video) do %>
@@ -10,8 +15,10 @@
           <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
             <div class="card-video-infos">
               <div>
-                <h3><%= video.sub_category.name %></h3>
-                <p> other labels go here </p>
+                <h6><%= video.title %> </h6>
+                <p><%= video.sub_category.name %></p>
+                 <p><%= video.difficulty %> </p>
+
               </div>
                 <h2 class="card-video-pricing">39 Votes</h2>
             </div>
@@ -31,11 +38,12 @@
           <%= submit_tag "Search", class: "btn btn-flat" do %>
             <i class="fas fa-search"></i> Search
             <% end %>
+
         </div>
       <% end %>
-      <div >
-      <%= link_to 'Back', :back, class: "btn btn-secondary" %>
-      </div>
+
+    <%= link_to 'Back', :back, class: "btn btn-back" %>
+
   </div>
 
   <div id="container-filter" class="container p-0 m-0">
@@ -44,7 +52,7 @@
         <div class="form-post"> -->
           <div class="category-choices">
             <% SubCategory.all.each do |category| %>
-                <%= link_to category.name, videos_path(sub_category: category.name), class: "category-choice" %>
+                <%= link_to category.name, videos_path(sub_category: category.name), id: "category-choice" %>
             <% end %>
            </div>
         </div>

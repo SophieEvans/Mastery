@@ -79,6 +79,7 @@ grid-gap: 32px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   color: #FF452E;
   text-decoration: none;
+  position: relative;
 }
 
 .card-video > img {
@@ -139,4 +140,14 @@ grid-gap: 32px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.stamp {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -2px;
+  width: 72% !important;
+  margin-left: auto;
+  margin-right: auto;
 }

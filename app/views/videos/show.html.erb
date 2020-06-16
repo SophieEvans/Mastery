@@ -10,6 +10,7 @@
       </div>
 
   <div class="card-category">
+
     <%= link_to "Mastered?", video_path(@video, completed:"true"), class: "category-choice" %>
 
   </div>
@@ -17,6 +18,12 @@
    <i class="far fa-thumbs-up"></i>
     <i class="far fa-thumbs-down"></i>
     <p>Did this video help you? Click on this star if so!<i class="far fa-star"></i></p>
+
+    <% if @interaction && @interaction.completed? %>
+      <%= link_to "Mark as not mastered", video_interactions_path(@video, interaction: {completed: false}), method: "POST", class: "category-choice" %>
+    <% else  %>
+      <%= link_to "I've mastered it", video_interactions_path(@video, interaction: {completed: true}), method: "POST", class: "category-choice" %>
+    <% end %>
 
   </div>
   </div>

@@ -2,11 +2,35 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #FF452E;
+  background: #e83f43;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
+  background: #b53337;
+  color: white;
+}
+
+.btn-back {
+  background-color: #e0dfdf;
+  color: gray;
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  margin: 4px;
+}
+
+.btn-back:hover {
   background: #dd4230;
   color: white;
+}
+
+#btn-flat-login {
+  padding: 8px 31px;
+  margin: 8px;
+}
+
+#btn-flat-signup {
+  margin: 8px;
+  padding-left: 26px;
 }

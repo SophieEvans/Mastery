@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     collection do
       get :dashboard
     end
+    resources :interactions, only: [:create, :update]
   end
-  resources :interactions, only: [:create, :update]
+
 
   resources :playlists  do
     resources :playlist_videos, only: :create

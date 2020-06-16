@@ -12,6 +12,10 @@
   padding-right: 15px;
 }
 
+.fas:hover {
+  color: #b53337;
+}
+
 .navbar-lewagon .navbar-brand img {
   width: 200px;
   height: 64px;
@@ -28,7 +32,7 @@ h1#mastery {
 // }
 
 .navbar-lewagon .navbar-collapse a {
-  color: #FF452E;
+  color: #e83f43;
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
@@ -38,12 +42,15 @@ h1#mastery {
     justify-content: space-around;
     position: fixed;
     bottom: 0;
-    background-color: #FF452E;
+    background-color: #e83f43;
   }
-  .navbar-lewagon .navbar-collapse a {
-    color: #FF452E;
-  }
+
   .navbar-lewagon .navbar-collapse a {
     color: whitesmoke;
+  }
+
+    .navbar-lewagon .navbar-collapse a:hover {
+    color: #b53337;
+  ;
   }
 }

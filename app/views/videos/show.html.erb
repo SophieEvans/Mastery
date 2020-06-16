@@ -17,11 +17,8 @@
       <%= link_to "I've mastered it", video_interactions_path(@video, interaction: {completed: true}), method: "POST", class: "category-choice" %>
     <% end %>
     <!-- ^^^ Gabriel do not touch this code go to _cards.scss to change the style ^^^ -->
-    <div class="icons">
-     <i class="far fa-thumbs-up icons"></i>
-      <i class="far fa-thumbs-down"></i>
-      <p>Did this video help you? Click on this star if so!<i class="far fa-star"></i></p>
-    </div>
-
+    <i class="fas fa-crown icons"></i>
+    <p id="like"> Like <i class="fas fa-thumbs-up"></i></p>
+    <p id="helpful"> Useful? <i class="far fa-star"></i></p>
   </div>
   </div>

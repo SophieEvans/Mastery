@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_211221) do
+ActiveRecord::Schema.define(version: 2020_06_16_232820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,12 @@ ActiveRecord::Schema.define(version: 2020_06_16_211221) do
     t.bigint "video_id", null: false
     t.boolean "favourite", default: false, null: false
     t.boolean "viewed", default: false, null: false
-    t.string "difficulty"
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "completed", default: false, null: false
+    t.integer "good_style"
+    t.integer "helpful"
     t.index ["user_id"], name: "index_interactions_on_user_id"
     t.index ["video_id"], name: "index_interactions_on_video_id"
   end
@@ -62,16 +63,12 @@ ActiveRecord::Schema.define(version: 2020_06_16_211221) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.integer "rating"
-    t.string "difficulty"
     t.bigint "user_id", null: false
     t.bigint "sub_category_id", null: false
     t.string "you_tube_key"
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "style"
-    t.integer "totalrating"
     t.index ["sub_category_id"], name: "index_videos_on_sub_category_id"
     t.index ["user_id"], name: "index_videos_on_user_id"
   end

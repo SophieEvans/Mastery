@@ -1,15 +1,15 @@
-class VideoPolicy < ApplicationPolicy
+class InteractionPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def show?
+  def create?
     true
   end
 
-  def dashboard?
+  def show?
     true
   end
 end

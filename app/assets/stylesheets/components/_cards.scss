@@ -14,10 +14,19 @@ grid-gap: 32px;
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
     grid-template-columns: 1fr;
-  }.card-video > img {
-    height: 280px;
+  }
+  .card-video > img {
+    height: 240px;
   }
 }
+  .cards-show {
+    grid-template-columns: 1fr;
+  }
+  #ytplayer1 {
+    width: 100%;
+    height: 240px;
+  }
+
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
@@ -68,12 +77,16 @@ grid-gap: 32px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: #FF452E;
+  text-decoration: none;
+  position: relative;
 }
 
 .card-video > img {
   width: 100%;
   padding: 24px;
   object-fit: cover;
+  text-decoration: none;
 }
 
 .card-video h2 {
@@ -82,12 +95,18 @@ grid-gap: 32px;
   margin: 0;
 }
 
-.card-video p {
+.card-video h3 {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
 
+.card-video p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  color: gray;
+}
 
 .card-video .card-video-infos {
   padding: 16px;
@@ -104,6 +123,10 @@ grid-gap: 32px;
   width: 40px;
 }
 
+.card-video-pricing {
+  color: gray;
+}
+
 .card-category {
   background-size: cover;
   background-position: center;
@@ -117,4 +140,14 @@ grid-gap: 32px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.stamp {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -2px;
+  width: 72% !important;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -1,5 +1,5 @@
 .footer {
-  background: #F4F4F4;
+  background: #e83f43;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,3 +21,24 @@
 .footer-links a:hover {
   opacity: 1;
 }
+
+.list-icons {
+  font-size: xx-large;
+  display: flex;
+  background-color: #e83f43;
+}
+.list-icons a {
+  color: whitesmoke;;
+}
+.list-icons a:hover {
+  color: lightgray;
+}
+
+//@media (min-width: 100px) and (max-width: 575px) {
+  //.list-icons {
+    //width: 100%;
+    //justify-content: space-around;
+    //position: fixed;
+    //bottom: 0;
+  //}
+//}

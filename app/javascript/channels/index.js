@@ -3,3 +3,9 @@
 
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
+
+// imports
+// import { initSortable } from './packs/init_sortable';
+
+// //plugins
+// initSortable();

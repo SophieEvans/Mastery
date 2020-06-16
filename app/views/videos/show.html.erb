@@ -10,6 +10,11 @@
       </div>
 
   <div class="card-category">
+    <% if @interaction && @interaction.completed? %>
+      <%= link_to "Mark as not mastered", video_interactions_path(@video, interaction: {completed: false}), method: "POST", class: "category-choice" %>
+    <% else  %>
+      <%= link_to "I've mastered it", video_interactions_path(@video, interaction: {completed: true}), method: "POST", class: "category-choice" %>
+    <% end %>
 
   </div>
   </div>

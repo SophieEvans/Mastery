@@ -1,6 +1,6 @@
 .search-form-control {
   position: relative;
-  width: 40%;
+  width: 50%;
 }
 
 .search-form-control .btn {
@@ -14,6 +14,8 @@
   height: 3.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border: 1px solid #E7E7E7;
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 .search-form-control .form-control:focus {
@@ -46,13 +48,13 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .search-form-control {
-    width: 40%;
+    width: 50%;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .search-form-control {
-    width: 40%;
+    width: 50%;
   }
 }

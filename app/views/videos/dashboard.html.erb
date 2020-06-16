@@ -1,0 +1,80 @@
+<div class=main_container>
+<h2>your dashboard</h2>
+<h3>rookie level 6/6 </h3>
+<h3 class="status">level mastered </h3>
+  <div class="cards">
+    <% @rookie_videos.each do |video| %>
+      <%= link_to video_path(video) do %>
+        <div class="card-video" id="results">
+          <% interaction = video.interactions.find {|i| i.user_id == current_user.id} %>
+          <% if interaction && interaction.completed? %>
+            <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
+            <%= image_tag "stamp.png", alt: "stamp", class: "stamp" %>
+          <% else %>
+            <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
+          <% end %>
+            <div class="card-video-infos">
+              <div>
+                <h3><%= video.sub_category.name %></h3>
+                <p> other labels go here </p>
+                <h2 class="card-video-pricing">#{video.rating} Votes</h2>
+              </div>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+<h3>intermediate level 3/8</h3>
+<h3 class="status">mastery within reach</h3>
+  <div class="cards">
+    <% @intermediate_videos.each do |video| %>
+      <%= link_to video_path(video) do %>
+        <div class="card-video" id="results">
+          <% interaction = video.interactions.find {|i| i.user_id == current_user.id} %>
+          <% if interaction && interaction.completed? %>
+            <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
+            <%= image_tag "stamp.png", alt: "stamp", class: "stamp" %>
+          <% else %>
+            <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
+          <% end %>
+             <div class="card-video-infos">
+              <div>
+                <h3><%= video.sub_category.name %></h3>
+                <p> other labels go here </p>
+              </div>
+                <h2 class="card-video-pricing">#{video.rating} Votes</h2>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+<h3>pro level 0/10</h3>
+<h3 class="status">not yet mastered</h3>
+<div class="cards">
+    <% @pro_videos.each do |video| %>
+      <%= link_to video_path(video) do %>
+        <div class="card-video" id="results">
+          <% interaction = video.interactions.find {|i| i.user_id == current_user.id} %>
+          <% if interaction && interaction.completed? %>
+            <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
+            <%= image_tag "stamp.png", alt: "stamp", class: "stamp" %>
+          <% else %>
+            <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
+          <% end %>
+            <div class="card-video-infos">
+              <div>
+                <h3><%= video.sub_category.name %></h3>
+                <p> other labels go here </p>
+              </div>
+                <h2 class="card-video-pricing">#{video.rating} Votes</h2>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

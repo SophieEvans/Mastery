@@ -1,7 +1,7 @@
 <div class=main_container>
-<h1>dashboard</h1>
-<h2>rookie level 6/6 </h2>
-<h2>level mastered</h2>
+<h2>your dashboard</h2>
+<h3>rookie level 6/6 </h3>
+<h3 class="status">level mastered </h3>
   <div class="cards">
     <% @rookie_videos.each do |video| %>
       <%= link_to video_path(video) do %>
@@ -26,8 +26,8 @@
   </div>
 
 
-<h2>intermediate level 3/8</h2>
-<h2>mastery within reach</h2>
+<h3>intermediate level 3/8</h3>
+<h3 class="status">mastery within reach</h3>
   <div class="cards">
     <% @intermediate_videos.each do |video| %>
       <%= link_to video_path(video) do %>
@@ -52,8 +52,8 @@
   </div>
 
 
-<h2>pro level 0/10</h2>
-<h2>not yet mastered</h2>
+<h3>pro level 0/10</h3>
+<h3 class="status">not yet mastered</h3>
 <div class="cards">
     <% @pro_videos.each do |video| %>
       <%= link_to video_path(video) do %>

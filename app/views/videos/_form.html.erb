@@ -1,0 +1,32 @@
+<%= simple_form_for(video) do |f| %>
+  <%# <button id="upload_widget" class="cloudinary-button">Upload Video</button> %>
+  <%#= f.input :external_file, direct_upload: true, as: :file, input_html: { id: "upload_widget" } %>
+  <%= cl_upload_tag(:video_id, :resource_type => "video", 
+  :eager => [{:streaming_profile => "full_hd", :format => "m3u8"}], 
+  :eager_async => true, 
+  :eager_notification_url => "http://localhost:3000/example", 
+  :html => {:id => "upload_widget"}) %>
+  <%= f.input :title %>
+  <%= f.association :sub_category %>
+  <%= f.submit %>
+<% end %>
+
+
+
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>  
+
+<script type="text/javascript">  
+var myWidget = cloudinary.createUploadWidget({
+  cloudName: '<%= ENV["CLOUDINARY_CLOUD_NAME"] %>', 
+  uploadPreset: 'ml_default'}, (error, result) => { 
+    if (!error && result && result.event === "success") { 
+      console.log('Done! Here is the image info: ', result.info); 
+    }
+  }
+)
+
+document.getElementById("upload_widget").addEventListener("click", (event) => {
+    event.preventDefault();
+    myWidget.open();
+  });
+</script>

@@ -4,10 +4,18 @@
 
   <div class="cards-show">
     <div>
-    <iframe id="ytplayer1" type="text/html" width="853" height="505"
-      src="https://www.youtube.com/embed/<%= @video.you_tube_key %>?autoplay=1"
-      frameborder="0"></iframe>
-      </div>
+      <% if @video.you_tube_key.present? %>
+        <iframe id="ytplayer1" type="text/html" width="853" height="505"
+        src="https://www.youtube.com/embed/<%= @video.you_tube_key %>?autoplay=1"
+        frameborder="0"></iframe>
+      <% else %>
+        <%= cl_video_tag @video.external_file.key, 
+        controls: true,
+        transformation: [ 
+          height: 300, width: 400, crop: :fill
+         ] %>
+      <% end %>
+    </div>
 
   <div class="card-category">
     <%= link_to "Mastered?", video_path(@video, completed:"true"), class: "category-choice" %>

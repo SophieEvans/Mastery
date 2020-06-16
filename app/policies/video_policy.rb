@@ -9,6 +9,14 @@ class VideoPolicy < ApplicationPolicy
     true
   end
 
+  def create?
+    true
+  end
+
+  def destroy?
+    record.user == user
+  end
+
   def dashboard?
     true
   end

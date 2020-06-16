@@ -33,26 +33,30 @@ class VideosController < ApplicationController
 
   def new
     @video = Video.new
+    authorize @video
   end
 
   def create
     @video = Video.new(video_params)
+    authorize @video
+    @video.user = current_user
     if @video.save
-      flash[:success] = "Video successfully created"
+      flash[:notice] = "Video successfully created"
       redirect_to @video
     else
-      flash[:error] = "Something went wrong"
+      flash[:alert] = "Something went wrong"
       render 'new'
     end
   end
-
+  
   def destroy
     @video = Video.find(params[:id])
+    @video.external_file.purge
     if @video.destroy
-      flash[:success] = 'Video was successfully deleted.'
+      flash[:notice] = 'Video was successfully deleted.'
       redirect_to videos_url
     else
-      flash[:error] = 'Something went wrong'
+      flash[:alert] = 'Something went wrong'
       redirect_to videos_url
     end
   end
@@ -67,6 +71,6 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:external_file)
+    params.require(:video).permit(:external_file, :title, :sub_category_id)
   end
 end

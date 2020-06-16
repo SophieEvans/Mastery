@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dhm80cc15
+  api_key: '836214961921335'
+  api_secret: VX49OIgdT532OUu0Sav1CRWh5U8
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dhm80cc15
+  api_key: '836214961921335'
+  api_secret: VX49OIgdT532OUu0Sav1CRWh5U8
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dhm80cc15
+  api_key: '836214961921335'
+  api_secret: VX49OIgdT532OUu0Sav1CRWh5U8
+  enhance_image_tag: true
+  static_file_support: false

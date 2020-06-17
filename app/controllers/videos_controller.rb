@@ -36,7 +36,7 @@ class VideosController < ApplicationController
       render 'new'
     end
   end
-  
+
   def destroy
     @video = Video.find(params[:id])
     @video.external_file.purge
@@ -50,9 +50,9 @@ class VideosController < ApplicationController
   end
 
   def dashboard
-    @rookie_videos = Video.joins(sub_category: :category).where("categories.name = 'rookie'")
-    @intermediate_videos = Video.joins(sub_category: :category).where("categories.name = 'Intermediate'")
-    @pro_videos = Video.joins(sub_category: :category).where("categories.name = 'pro'")
+    @rookie_videos = Video.where(sub_category.difficulty = "rookie").includes(:interactions)
+    @intermediate_videos = Video.where(sub_category.difficulty = "Intermediate").includes(:interactions)
+    @pro_videos = Video.where(sub_category.difficulty = "pro").includes(:interactions)
   end
 
   private

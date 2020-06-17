@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   resources :videos, only: [:index, :show, :new, :create] do
     collection do
       get :dashboard
+      get :search
     end
     resources :interactions, only: [:create, :update]
   end
-
 
   resources :playlists  do
     resources :playlist_videos, only: :create

@@ -6,25 +6,20 @@ class InteractionsController < ApplicationController
     @interaction = Interaction.find_or_initialize_by(user_id: current_user.id, video_id: @video.id)
     authorize @interaction
     # if exists we update
-    if @interaction.persisted?
-      if @interaction.update(interaction_params)
-        flash[:success] = "Marked as mastered"
-      else
-        flash[:error] = "Something went wrong"
-      end
-    # else we create and set boolean as true
-    else
+    unless @interaction.persisted?
       @interaction = Interaction.new(interaction_params)
       @interaction.video = @video
       @interaction.user = current_user
-      if @interaction.save
-        flash[:success] = "Marked as mastered"
-      else
-        flash[:error] = "Something went wrong"
-      end
-      # redirect user to show
     end
-    redirect_to @video
+
+    @interaction.helpful = !@interaction.helpful if interaction_params[:helpful].present?
+
+    @interaction.save
+      # redirect user to show
+    respond_to do |format|
+      format.html { redirect_to @video }
+      format.js
+    end
   end  
 
   private

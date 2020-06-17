@@ -1,0 +1,21 @@
+var helpfulButton = document.getElementById("helpful")
+var styleButton = document.getElementById("style")
+var likeButton = document.getElementById("like")
+var dislikeButton = document.getElementById("dislike")
+
+<% btn_helpful = @interaction.helpful ? "btn-primary" : "btn-flat" %>
+<% btn_good_style = @interaction.good_style ? "btn-primary" : "btn-back" %>
+<% btn_up_vote = @interaction.vote ? "btn-primary" : "icons" %>
+<% btn_down_vote = @interaction.vote ? "icons" : (@interaction.vote==nil ? "icons" : "btn-primary") %>
+
+<% if @interaction.helpful %>
+    if (!helpfulButton.classList.contains("btn-primary")) {
+        helpfulButton.classList.add("btn-primary")
+    }
+    helpfulButton.classList.remove("btn-flat")   
+<% else %>
+    if (!helpfulButton.classList.contains("btn-flat")) {
+        helpfulButton.classList.add("btn-flat")
+    }
+    helpfulButton.classList.remove("btn-primary") 
+<% end %>

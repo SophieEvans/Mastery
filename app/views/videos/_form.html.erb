@@ -1,0 +1,29 @@
+<%= simple_form_for(video) do |f| %>
+  <%= f.input :cloudinary_video_id, direct_upload: true, as: :file, input_html: { id: "upload_widget" } %>
+  <%= f.input :title %>
+  <%= f.association :sub_category %>
+  <%= f.submit %>
+<% end %>
+
+
+
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>  
+
+<script type="text/javascript">
+  var myWidget = cloudinary.createUploadWidget({
+    cloudName: '<%= ENV["CLOUDINARY_CLOUD_NAME"] %>',
+    uploadPreset: '<%= ENV["CLOUDINARY_UNSIGNED_PRESET"] %>'}, (error, result) => {
+      if (!error && result && result.event === "success") {
+        console.log('Done! Here is the image info: ', result.info);
+        const hiddenField = document.createElement('input')
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("value", result.info.public_id);
+        hiddenField.name = "video[cloudinary_video_id]"
+        document.querySelector('form').appendChild(hiddenField);
+      }
+    })
+  document.getElementById("upload_widget").addEventListener("click", (event) => {
+    event.preventDefault();
+    myWidget.open();
+  });
+</script>

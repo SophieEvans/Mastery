@@ -4,9 +4,17 @@
 
   <div class="cards-show">
     <div>
-      <iframe id="ytplayer1" type="text/html" width="853" height="505"
+      <% if @video.you_tube_key.present? %>
+        <iframe id="ytplayer1" type="text/html" width="853" height="505"
         src="https://www.youtube.com/embed/<%= @video.you_tube_key %>?autoplay=1"
         frameborder="0"></iframe>
+      <% else %>
+        <%= cl_video_tag @video.cloudinary_video_id, 
+        controls: true,
+        transformation: [ 
+          height: 300, width: 400, crop: :fill
+         ] %>
+      <% end %>
     </div>
 
     <div class="card-category">
@@ -20,7 +28,6 @@
         <i class="far fa-thumbs-down"></i>
       <% end %>
     </div>
-
   </div>
 </div>
 

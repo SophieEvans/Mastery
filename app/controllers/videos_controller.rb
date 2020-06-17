@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :search]
 
   def index
     if params[:query].present?
@@ -53,6 +53,10 @@ class VideosController < ApplicationController
     @rookie_videos = Video.where(sub_category.difficulty = "rookie").includes(:interactions)
     @intermediate_videos = Video.where(sub_category.difficulty = "Intermediate").includes(:interactions)
     @pro_videos = Video.where(sub_category.difficulty = "pro").includes(:interactions)
+  end
+
+  def search
+    @videos = policy_scope(Video)
   end
 
   private

@@ -14,7 +14,9 @@ class InteractionsController < ApplicationController
       end
     # else we create and set boolean as true
     else
-      @interaction.completed = true
+      @interaction = Interaction.new(interaction_params)
+      @interaction.video = @video
+      @interaction.user = current_user
       if @interaction.save
         flash[:success] = "Marked as mastered"
       else
@@ -22,8 +24,8 @@ class InteractionsController < ApplicationController
       end
       # redirect user to show
     end
-    redirect_to dashboard_videos_path
-  end
+    redirect_to @video
+  end  
 
   private
 

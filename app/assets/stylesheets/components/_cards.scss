@@ -18,6 +18,10 @@ grid-gap: 32px;
   .card-video > img {
     height: 240px;
   }
+  .card-category a {
+    font-size: 1em;
+  }
+
 }
   .cards-show {
     grid-template-columns: 1fr;
@@ -79,6 +83,7 @@ grid-gap: 32px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   color: #FF452E;
   text-decoration: none;
+  position: relative;
 }
 
 .card-video > img {
@@ -129,14 +134,47 @@ grid-gap: 32px;
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
+  padding: 16px;
+  color: black;
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
+  margin-bottom: 16px;
+  padding-bottom: 0;
+  background-color: rgb(240,240,240);
+}
+
+.card-category .icons {
+  font-size: .8em;
+  display: block;
+  text-align: center;
+}
+#like {
+  padding: 8px;
+  color: #ED7A6A;
+  display: inline-block;
+  text-align: left;
+  margin-top: 32px;
+  margin-bottom: 0;
+  width: 100%;
+}
+#helpful {
+  display: inline-block;
+  padding: 8px;
+  text-align: left;
+  width: 100%;
+  color: #ED7A6A;
+}
+
+.stamp {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -2px;
+  width: 72% !important;
+  margin-left: auto;
+  margin-right: auto;
 }

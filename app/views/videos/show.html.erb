@@ -1,4 +1,4 @@
-<div class=main_container>
+<div class="main_container">
 
   <h1>Labels go here</h1>
 
@@ -17,9 +17,17 @@
       <% end %>
     </div>
 
-  <div class="card-category">
-    <%= link_to "Mastered?", video_path(@video, completed:"true"), class: "category-choice" %>
-  </div>
+    <div class="card-category">
+      <%= link_to "helpful", "#", class: "btn btn-back" %>
+      <%= link_to "good style", "#", class: "btn btn-flat" %>
+      <%= link_to "#", class: "icons" do %>
+        <i class="far fa-thumbs-up"></i>
+      <% end %>
+      <i class="fas fa-user-graduate"></i>
+      <%= link_to "#", class: "icons" do %>
+        <i class="far fa-thumbs-down"></i>
+      <% end %>
+    </div>
   </div>
 </div>
 

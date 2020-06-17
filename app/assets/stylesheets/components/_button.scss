@@ -2,11 +2,36 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #FF452E;
+  background: #e83f43;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
+  background: #b53337;
+  color: white;
+}
+
+.btn-back {
+  background-color: whitesmoke;
+  color: #e83f43;
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  margin: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-back:hover {
   background: #dd4230;
   color: white;
+}
+
+#btn-flat-login {
+  padding: 8px 31px;
+  margin: 8px;
+}
+
+#btn-flat-signup {
+  margin: 8px;
+  padding-left: 26px;
 }

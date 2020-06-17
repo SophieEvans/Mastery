@@ -3,21 +3,17 @@
     <%= image_tag "Photofox.png", class: "logo" %>
 <!--     <h1 id="mastery">Mastery</h1> -->
     <% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <%# if user_signed_in? %>
           <%= link_to videos_path do %>
-            <i class="fas fa-home"></i>
+            <i class="fas fa-home nav-item active"></i>
           <% end %>
           <%= link_to videos_path(@videos, anchor: "search-form-control") do %>
-            <i class="fas fa-search"></i>
+            <i class="fas fa-search nav-item"></i>
           <% end %>
           <%= link_to dashboard_videos_path do %>
-            <i class="fas fa-user-alt"></i>
+            <i class="fas fa-user-alt nav-item"></i>
           <% end %>
         <!p class="nav-item dropdown">
           <%#= image_tag "https://kitt.lewagon.com/placeholder/users/sophieevans", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

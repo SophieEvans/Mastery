@@ -3,6 +3,15 @@ var styleButton = document.getElementById("style")
 var likeButton = document.getElementById("like")
 var dislikeButton = document.getElementById("dislike")
 
+var helpfulCount =  document.getElementById("helpful-count")
+helpfulCount.innerHTML = "<%= @video.helpful %>"
+
+var goodStyleCount =  document.getElementById("good-style-count")
+goodStyleCount.innerHTML = "<%= @video.good_style %>"
+
+var voteCount =  document.getElementById("vote-count")
+voteCount.innerHTML = "<%= @video.rating %>"
+
 <% btn_helpful = @interaction.helpful ? "btn-primary" : "btn-flat" %>
 <% btn_good_style = @interaction.good_style ? "btn-primary" : "btn-back" %>
 <% btn_up_vote = @interaction.vote ? "btn-primary" : "icons" %>

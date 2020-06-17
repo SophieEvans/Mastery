@@ -1,7 +1,6 @@
 puts "Erasing all the work done so far..."
 
 User.destroy_all
-Category.destroy_all
 SubCategory.destroy_all
 Video.destroy_all
 Interaction.destroy_all
@@ -24,17 +23,15 @@ user8 = User.create!(username: "kateskate5", email: "kate@gmail.com", password: 
 user9 = User.create!(username: "ollie_frontside1", email: "ollie@gmail.com", password: "123456")
 user9 = User.create!(username: "pop1980", email: "pop@gmail.com", password: "123456")
 
-# category
-rookie = Category.create!(name: "rookie")
 # subcategory
-ollie = SubCategory.create!(name: "ollie", category_id: rookie.id)
-nollie = SubCategory.create!(name: "nollie", category_id: rookie.id)
-shuvit = SubCategory.create!(name: "shuvit", category_id: rookie.id)
-frontside180 = SubCategory.create!(name: "frontside 180", category_id: rookie.id)
-kickflip = SubCategory.create!(name: "kickflip", category_id: rookie.id)
-casperflip = SubCategory.create!(name: "casper flip", category_id: rookie.id)
-frontside_ollie = SubCategory.create!(name: "frontside ollie", category_id: rookie.id)
-drop_in = SubCategory.create!(name: "drop in", category_id: rookie.id)
+ollie = SubCategory.create!(name: "ollie", difficulty: "rookie")
+nollie = SubCategory.create!(name: "nollie", difficulty: "rookie")
+shuvit = SubCategory.create!(name: "shuvit", difficulty: "rookie")
+frontside180 = SubCategory.create!(name: "frontside 180", difficulty: "rookie")
+kickflip = SubCategory.create!(name: "kickflip", difficulty: "rookie")
+casperflip = SubCategory.create!(name: "casper flip", difficulty: "rookie")
+frontside_ollie = SubCategory.create!(name: "frontside ollie", difficulty: "rookie")
+drop_in = SubCategory.create!(name: "drop in", difficulty: "rookie")
 # videos and interactions
 video_ollie = Video.create!(title: "ollie slo-mo",
   user_id: gabriel.id, sub_category_id: ollie.id, you_tube_key: "QjuuRA-b94I")
@@ -61,23 +58,20 @@ video_nollie2 = Video.create!(title: "nollie slo-mo",
 interaction2b = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_nollie2.id, viewed: true)
 
-
 video_frontside180 = Video.create!(title: "frontside 180 slo-mo",
   user_id: gabriel.id, sub_category_id: frontside180.id, you_tube_key: "__u6Kdqa0WA")
 interaction2b = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_frontside180.id, viewed: true)
 
-# category
-intermediate = Category.create!(name: "intermediate")
 # subcategory
-varial_kickflip = SubCategory.create!(name: "varial kickflip", category_id: intermediate.id)
-frontside_pop_shove_it = SubCategory.create!(name: "frontside pop shuvit", category_id: intermediate.id)
-frontside_180_ollie = SubCategory.create!(name: "frontside 180 ollie", category_id: intermediate.id)
-fifty_fifty_grind = SubCategory.create!(name: "50-50 grind", category_id: intermediate.id)
-frontside_disaster = SubCategory.create!(name: "frontside disaster", category_id: intermediate.id)
-board_slide = SubCategory.create!(name: "board slide", category_id: intermediate.id)
-frontside_tailslide = SubCategory.create!(name: "frontside tailslide", category_id: intermediate.id)
-threesixty_flip = SubCategory.create!(name: "360 flip", category_id: intermediate.id)
+varial_kickflip = SubCategory.create!(name: "varial kickflip", difficulty: "intermediate")
+frontside_pop_shove_it = SubCategory.create!(name: "frontside pop shuvit", difficulty: "intermediate")
+frontside_180_ollie = SubCategory.create!(name: "frontside 180 ollie", difficulty: "intermediate")
+fifty_fifty_grind = SubCategory.create!(name: "50-50 grind", difficulty: "intermediate")
+frontside_disaster = SubCategory.create!(name: "frontside disaster", difficulty: "intermediate")
+board_slide = SubCategory.create!(name: "board slide", difficulty: "intermediate")
+frontside_tailslide = SubCategory.create!(name: "frontside tailslide", difficulty: "intermediate")
+threesixty_flip = SubCategory.create!(name: "360 flip", difficulty: "intermediate")
 # videos and interactions
 video_varial_kickflip = Video.create!(title: "clean varial kickflip",
   user_id: vinny.id, sub_category_id: varial_kickflip.id, you_tube_key: "ocFOCVHE0Ho")
@@ -97,22 +91,19 @@ interaction5 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
 video_threesixty_flip = Video.create!(title: "360 flip super slo-mo",
   user_id: vinny.id, sub_category_id: frontside_180_ollie.id, you_tube_key: "h0ZCMsgjZgs")
 
-# category
-pro = Category.create!(name: "pro")
-
 # subcategory
-gazelle_flip = SubCategory.create!(name: "gazelle flip", category_id: pro.id)
-nollie_flip = SubCategory.create!(name: "nollie flip", category_id: pro.id)
-fs_nosegrind = SubCategory.create!(name: "fs nosegrind", category_id: pro.id)
-nollie_heel_flip = SubCategory.create!(name: "nollie heelflip", category_id: pro.id)
-fs_smithgrind = SubCategory.create!(name: "fs smith grind", category_id: pro.id)
-hard_flip = SubCategory.create!(name: "hard flip", category_id: pro.id)
-frontside_ollie = SubCategory.create!(name: "frontside ollie", category_id: pro.id)
-threesixty_shuvit = SubCategory.create!(name: "360 shuvit", category_id: pro.id)
-backside_tailslide = SubCategory.create!(name: "backside tailslide", category_id: pro.id)
-crooked_grind = SubCategory.create!(name: "crooked grind", category_id: pro.id)
-blunt_fakie = SubCategory.create!(name: "blunt fakie", category_id: pro.id)
-frontside_blunt = SubCategory.create!(name: "frontside blunt", category_id: pro.id)
+gazelle_flip = SubCategory.create!(name: "gazelle flip", difficulty: "pro")
+nollie_flip = SubCategory.create!(name: "nollie flip", difficulty: "pro")
+fs_nosegrind = SubCategory.create!(name: "fs nosegrind", difficulty: "pro")
+nollie_heel_flip = SubCategory.create!(name: "nollie heelflip", difficulty: "pro")
+fs_smithgrind = SubCategory.create!(name: "fs smith grind", difficulty: "pro")
+hard_flip = SubCategory.create!(name: "hard flip", difficulty: "pro")
+frontside_ollie = SubCategory.create!(name: "frontside ollie", difficulty: "pro")
+threesixty_shuvit = SubCategory.create!(name: "360 shuvit", difficulty: "pro")
+backside_tailslide = SubCategory.create!(name: "backside tailslide", difficulty: "pro")
+crooked_grind = SubCategory.create!(name: "crooked grind", difficulty: "pro")
+blunt_fakie = SubCategory.create!(name: "blunt fakie", difficulty: "pro")
+frontside_blunt = SubCategory.create!(name: "frontside blunt", difficulty: "pro")
 
 # videos
 video_gazelle_flip = Video.create!(title: "quick gazelle flip",

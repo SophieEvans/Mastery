@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_232820) do
+ActiveRecord::Schema.define(version: 2020_06_16_211221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,34 +36,25 @@ ActiveRecord::Schema.define(version: 2020_06_16_232820) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "interactions", force: :cascade do |t|
     t.datetime "viewed_on"
     t.bigint "user_id", null: false
     t.bigint "video_id", null: false
     t.boolean "favourite", default: false, null: false
     t.boolean "viewed", default: false, null: false
+    t.string "difficulty"
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "completed", default: false, null: false
-    t.integer "good_style"
-    t.integer "helpful"
     t.index ["user_id"], name: "index_interactions_on_user_id"
     t.index ["video_id"], name: "index_interactions_on_video_id"
   end
 
   create_table "sub_categories", force: :cascade do |t|
     t.string "name"
-    t.bigint "category_id", null: false
+    t.string "difficulty"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_sub_categories_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -84,6 +75,9 @@ ActiveRecord::Schema.define(version: 2020_06_16_232820) do
   end
 
   create_table "videos", force: :cascade do |t|
+    t.integer "helpful"
+    t.integer "good_style"
+    t.integer "rating"
     t.bigint "user_id", null: false
     t.bigint "sub_category_id", null: false
     t.string "you_tube_key"
@@ -98,7 +92,6 @@ ActiveRecord::Schema.define(version: 2020_06_16_232820) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "interactions", "users"
   add_foreign_key "interactions", "videos"
-  add_foreign_key "sub_categories", "categories"
   add_foreign_key "videos", "sub_categories"
   add_foreign_key "videos", "users"
 end

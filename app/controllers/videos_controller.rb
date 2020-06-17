@@ -50,9 +50,12 @@ class VideosController < ApplicationController
   end
 
   def dashboard
-    @rookie_videos = Video.where(sub_category.difficulty = "rookie").includes(:interactions)
-    @intermediate_videos = Video.where(sub_category.difficulty = "Intermediate").includes(:interactions)
-    @pro_videos = Video.where(sub_category.difficulty = "pro").includes(:interactions)
+    rookie = SubCategory.where(difficulty: "rookie")
+    intermediate = SubCategory.where(difficulty: "intermediate")
+    pro = SubCategory.where(difficulty: "pro")
+    @rookie_videos = Video.where(sub_category: rookie)
+    @intermediate_videos = Video.where(sub_category: intermediate)
+    @pro_videos = Video.where(sub_category: pro)
   end
 
   def search

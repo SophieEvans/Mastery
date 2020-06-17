@@ -1,7 +1,11 @@
 <div class="main_container">
+
   <div class="heading-container">
+   <% if @videos.present? %>
     <h2 class="grid-heading">Master the tricks and <strong>track, share, rate</strong></h2>
+  <% end %>
     <%= link_to "Logout", destroy_user_session_path, class: "", :method => :delete if user_signed_in? %>
+
     <div>
     <span>
     <%= link_to "Login", new_user_session_path, class: "btn btn-flat-login" unless user_signed_in? %>
@@ -10,55 +14,28 @@
     </div>
   </div>
   <div class="cards">
-    <% @videos.each do |video| %>
-      <%= link_to video_path(video) do %>
-        <div class="card-video" id="results">
-          <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
-            <div class="card-video-infos">
-              <div>
-                <h6><%= video.title %> </h6>
-                <p><%= video.sub_category.name %></p>
-                 <p><%= video.sub_category.category.name %></p>
+    <% if @videos.present? %>
+      <% @videos.each do |video| %>
+        <%= link_to video_path(video) do %>
+          <div class="card-video" id="results">
+            <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
+              <div class="card-video-infos">
+                <div>
+                  <h6><%= video.title %> </h6>
+                  <p><%= video.sub_category.name %></p>
+                   <p><%= video.sub_category.difficulty %></p>
 
+                </div>
+                  <h2 class="card-video-pricing"> 39 Votes </h2>
               </div>
-                <h2 class="card-video-pricing"> 39 Votes </h2>
-            </div>
-        </div>
+          </div>
+        <% end %>
       <% end %>
+    <% else %>
+      <h2>No video results found</h2>
+      <%= link_to "Back to search", search_videos_path, class: "btn btn-back" %>
+      <%= link_to "Home", videos_path, class: "btn btn-back" %>
     <% end %>
   </div>
-
-  <div>
-      <%= form_tag videos_path, method: :get do %>
-        <div id="search-form-control" class="search-form-control form-group">
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find a trick"
-          %>
-          <%= submit_tag "Search", class: "btn btn-flat" do %>
-            <i class="fas fa-search"></i> Search
-            <% end %>
-
-        </div>
-      <% end %>
-
-    <%= link_to 'Back', :back, class: "btn btn-back" %>
-
-  </div>
-
-  <div id="container-filter" class="container p-0 m-0">
-<!--     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <div class="form-post"> -->
-          <div class="category-choices">
-            <% SubCategory.all.each do |category| %>
-                <%= link_to category.name, videos_path(sub_category: category.name), id: "category-choice" %>
-            <% end %>
-           </div>
-        </div>
-<!--       </div> -->
-<!--     </div>
-  </div> -->
 </div>
 

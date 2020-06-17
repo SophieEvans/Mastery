@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   root to: 'videos#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :videos, only: [:index, :show] do
+  resources :videos, only: [:index, :show, :new, :create] do
     collection do
       get :dashboard
+      get :search
     end
     resources :interactions, only: [:create, :update]
   end
-
 
   resources :playlists  do
     resources :playlist_videos, only: :create

@@ -10,15 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_232820) do
+ActiveRecord::Schema.define(version: 2020_06_17_180637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
   create_table "interactions", force: :cascade do |t|
@@ -27,22 +42,20 @@ ActiveRecord::Schema.define(version: 2020_06_16_232820) do
     t.bigint "video_id", null: false
     t.boolean "favourite", default: false, null: false
     t.boolean "viewed", default: false, null: false
+    t.string "difficulty"
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "completed", default: false, null: false
-    t.integer "good_style"
-    t.integer "helpful"
+    t.boolean "completed"
     t.index ["user_id"], name: "index_interactions_on_user_id"
     t.index ["video_id"], name: "index_interactions_on_video_id"
   end
 
   create_table "sub_categories", force: :cascade do |t|
     t.string "name"
-    t.bigint "category_id", null: false
+    t.string "difficulty"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_sub_categories_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,19 +76,23 @@ ActiveRecord::Schema.define(version: 2020_06_16_232820) do
   end
 
   create_table "videos", force: :cascade do |t|
+    t.integer "helpful"
+    t.integer "good_style"
+    t.integer "rating"
     t.bigint "user_id", null: false
     t.bigint "sub_category_id", null: false
     t.string "you_tube_key"
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "cloudinary_video_id"
     t.index ["sub_category_id"], name: "index_videos_on_sub_category_id"
     t.index ["user_id"], name: "index_videos_on_user_id"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "interactions", "users"
   add_foreign_key "interactions", "videos"
-  add_foreign_key "sub_categories", "categories"
   add_foreign_key "videos", "sub_categories"
   add_foreign_key "videos", "users"
 end

@@ -1,5 +1,5 @@
-<div class=main_container>
-  <div class=heading-container>
+<div class="main_container">
+  <div class="heading-container">
     <h2 class="grid-heading">Master the tricks and <strong>track, share, rate</strong></h2>
     <div>
       <span>
@@ -17,10 +17,10 @@
               <div>
                 <h6><%= video.title %> </h6>
                 <p><%= video.sub_category.name %></p>
-                 <p><%= video.difficulty %> </p>
+                 <p><%= video.sub_category.category.name %></p>
 
               </div>
-                <h2 class="card-video-pricing"><%= video.votes %>Votes</h2>
+                <h2 class="card-video-pricing"> 39 Votes </h2>
             </div>
         </div>
       <% end %>

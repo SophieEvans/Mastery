@@ -10,13 +10,6 @@
     </div>
 
   <div class="card-category">
-    <!-- vvv Gabriel do not touch this code vvv -->
-    <% if @interaction && @interaction.completed? %>
-      <%= link_to "Mark as not mastered", video_interactions_path(@video, interaction: {completed: false}), method: "POST", class: "category-choice" %>
-    <% else  %>
-      <%= link_to "I've mastered it", video_interactions_path(@video, interaction: {completed: true}), method: "POST", class: "category-choice" %>
-    <% end %>
-    <!-- ^^^ Gabriel do not touch this code go to _cards.scss to change the style ^^^ -->
 
     <i class="fas fa-crown icons"></i>
     <p id="like"> Like <i class="fas fa-thumbs-up"></i></p>

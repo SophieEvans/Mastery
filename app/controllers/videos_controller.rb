@@ -20,8 +20,8 @@ class VideosController < ApplicationController
   end
 
   def dashboard
-    @rookie_videos = Video.where(category.name = "rookie").includes(:interactions)
-    @intermediate_videos = Video.where(category.name = "Intermediate").includes(:interactions)
-    @pro_videos = Video.where(category.name = "pro").includes(:interactions)
+    @rookie_videos = Video.joins(sub_category: :category).where("categories.name = 'rookie'")
+    @intermediate_videos = Video.joins(sub_category: :category).where("categories.name = 'Intermediate'")
+    @pro_videos = Video.joins(sub_category: :category).where("categories.name = 'pro'")
   end
 end

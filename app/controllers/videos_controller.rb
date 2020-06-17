@@ -53,6 +53,13 @@ class VideosController < ApplicationController
     @rookie_videos = Video.joins(:sub_category).where(sub_categories: {difficulty: "rookie"}).uniq {|v| v.sub_category.name}
     @intermediate_videos = Video.joins(:sub_category).where(sub_categories: {difficulty: "intermediate"}).uniq {|v| v.sub_category.name}
     @pro_videos = Video.joins(:sub_category).where(sub_categories: {difficulty: "pro"}).uniq {|v| v.sub_category.name}
+
+  #   @interactions_rookie = @rookie_videos.each do |video|
+  #     interaction = Interaction.where(user_id: current_user.id, video_id: video.id)
+  #     if interaction.completed == true
+  #       @score = current_user.rookie_completed += 1
+  #     end
+  #   end
   end
 
   def search

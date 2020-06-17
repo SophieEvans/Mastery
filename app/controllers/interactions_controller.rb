@@ -6,28 +6,37 @@ class InteractionsController < ApplicationController
     @interaction = Interaction.find_or_initialize_by(user_id: current_user.id, video_id: @video.id)
     authorize @interaction
     # if exists we update
-    if @interaction.persisted?
-      if @interaction.update(interaction_params)
-        flash[:success] = "Marked as mastered"
-      else
-        flash[:error] = "Something went wrong"
-      end
-    # else we create and set boolean as true
-    else
-      @interaction.completed = true
-      if @interaction.save
-        flash[:success] = "Marked as mastered"
-      else
-        flash[:error] = "Something went wrong"
-      end
-      # redirect user to show
+    unless @interaction.persisted?
+      @interaction = Interaction.new(interaction_params)
+      @interaction.video = @video
+      @interaction.user = current_user
     end
-    redirect_to dashboard_videos_path
-  end
+
+    @interaction.helpful = !@interaction.helpful if interaction_params[:helpful].present?
+    @interaction.good_style = !@interaction.good_style if interaction_params[:good_style].present?
+    
+    # Work in progress
+    #if interaction_params[:vote].present?
+      #@interaction.vote = interaction_params[:vote]
+    #case @interaction.vote
+    #when true
+      #@interaction.vote = nil
+    #when nil
+      #@interaction.vote 
+    #when false
+      #@interaction.vote = nil
+
+    @interaction.save
+      # redirect user to show
+    respond_to do |format|
+      format.html { redirect_to @video }
+      format.js
+    end
+  end  
 
   private
 
   def interaction_params
-    params.require(:interaction).permit(:completed)
+    params.require(:interaction).permit(:completed, :helpful, :good_style, :vote)
   end
 end

@@ -13,6 +13,18 @@ class InteractionsController < ApplicationController
     end
 
     @interaction.helpful = !@interaction.helpful if interaction_params[:helpful].present?
+    @interaction.good_style = !@interaction.good_style if interaction_params[:good_style].present?
+    
+    # Work in progress
+    #if interaction_params[:vote].present?
+      #@interaction.vote = interaction_params[:vote]
+    #case @interaction.vote
+    #when true
+      #@interaction.vote = nil
+    #when nil
+      #@interaction.vote 
+    #when false
+      #@interaction.vote = nil
 
     @interaction.save
       # redirect user to show

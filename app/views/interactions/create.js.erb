@@ -19,3 +19,15 @@ var dislikeButton = document.getElementById("dislike")
     }
     helpfulButton.classList.remove("btn-primary") 
 <% end %>
+
+<% if @interaction.good_style %>
+    if (!styleButton.classList.contains("btn-primary")) {
+        styleButton.classList.add("btn-primary")
+    }
+    styleButton.classList.remove("btn-back")   
+<% else %>
+    if (!styleButton.classList.contains("btn-back")) {
+        styleButton.classList.add("btn-back")
+    }
+    styleButton.classList.remove("btn-primary") 
+<% end %>

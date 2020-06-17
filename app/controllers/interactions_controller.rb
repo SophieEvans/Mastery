@@ -30,6 +30,6 @@ class InteractionsController < ApplicationController
   private
 
   def interaction_params
-    params.require(:interaction).permit(:completed)
+    params.require(:interaction).permit(:completed, :helpful, :good_style, :vote)
   end
 end

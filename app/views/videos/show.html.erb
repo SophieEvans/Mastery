@@ -19,12 +19,12 @@
 
     <div class="card-category">
       <%= link_to "helpful", video_interactions_path(@video, interaction: { helpful: true }), method: :post, class: "btn btn-flat" %>
-      <%= link_to "good style", video_interactions_path(@video, interaction: { good_style: true }), method: :post, class: "icons" %>
-      <%= link_to video_interactions_path(@video, interaction: { like: true }), method: :post, class: "btn btn-back" do %>
+      <%= link_to "good style", video_interactions_path(@video, interaction: { good_style: true }), method: :post, class: "btn btn-back" %>
+      <%= link_to video_interactions_path(@video, interaction: { vote: true }), method: :post, class: "icons" do %>
         <i class="far fa-thumbs-up"></i>
       <% end %>
       <i class="fas fa-user-graduate"></i>
-      <%= link_to video_interactions_path(@video, interaction: { like: true }), method: :post, class: "icons" do %>
+      <%= link_to video_interactions_path(@video, interaction: { vote: false }), method: :post, class: "icons" do %>
         <i class="far fa-thumbs-down"></i>
       <% end %>
     </div>

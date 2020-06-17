@@ -32,11 +32,11 @@
 }
 
 .btn-flat-login {
-    padding: 8px 31px;
-    margin: 8px;
-    background-color: white;
-    border: 1px solid gray;
-    border-radius: 2px;
+    color: white;
+    padding: 8px 24px;
+    background: #e83f43;
+    border-radius: 4px;
+    transition: background 0.3s ease;
 }
 
 .btn-flat-login:hover {
@@ -46,11 +46,11 @@
 }
 
 .btn-flat-signup {
-    padding: 8px 31px;
-    margin: 8px;
-    background-color: solid gray;
-    border: 1px white;
-    border-radius: 2px;
+    color: white;
+    padding: 8px 24px;
+    background: #e83f43;
+    border-radius: 4px;
+    transition: background 0.3s ease;
 }
 
 .btn-flat-signup:hover {

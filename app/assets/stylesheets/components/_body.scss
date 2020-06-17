@@ -6,9 +6,11 @@
 }
 
 .heading-container {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 8px;
+  display: flex;
+  justify-content: space-around;
+  ///display: grid;
+  ///grid-template-columns: 2fr 1fr;
+  ///grid-gap: 8px;
 }
 
 .grid-heading {

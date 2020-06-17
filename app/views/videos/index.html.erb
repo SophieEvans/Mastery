@@ -1,13 +1,15 @@
 <div class="main_container">
-    <div class="heading-container">
-    <% if @videos.present? %>
-      <h2 class="grid-heading">Master the tricks and <strong>track, share, rate</strong></h2>
-    <% end %>
+
+  <div class="heading-container">
+   <% if @videos.present? %>
+    <h2 class="grid-heading">Master the tricks and <strong>track, share, rate</strong></h2>
+  <% end %>
+    <%= link_to "Logout", destroy_user_session_path, class: "", :method => :delete if user_signed_in? %>
+
     <div>
     <span>
     <%= link_to "Login", new_user_session_path, class: "btn btn-flat-login" unless user_signed_in? %>
     <%= link_to "Signup", new_user_registration_path, class: "btn btn-flat-signup" unless user_signed_in? %>
-    <%= link_to "Logout", destroy_user_session_path, class: "btn btn-flat-logout", :method => :delete if user_signed_in? %>
     </span>
     </div>
   </div>

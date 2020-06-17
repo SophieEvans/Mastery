@@ -14,16 +14,13 @@ class InteractionsController < ApplicationController
 
     @interaction.helpful = !@interaction.helpful if interaction_params[:helpful].present?
     @interaction.good_style = !@interaction.good_style if interaction_params[:good_style].present?
-    @interaction.vote
     # Work in progress
     if interaction_params[:upvote].present?
-      @interaction.vote = true if @interaction.vote == nil
-      @interaction.vote = nil if @interaction.vote == true
+      @interaction.vote = @interaction.vote ? nil : true
     end
 
     if interaction_params[:vote].present?
-      @interaction.vote = false if @interaction.vote == nil
-      @interaction.vote = nil if @interaction.vote == false
+      @interaction.vote = @interaction.vote ? false : (@interaction.vote==nil ? false : nil)
     end
 
     @interaction.save

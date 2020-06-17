@@ -34,33 +34,33 @@ var dislikeButton = document.getElementById("dislike")
 
 <% case @interaction.vote %>
 <% when true %>
-    if (!btn_up_vote.classList.contains("btn-primary")) {
-        btn_up_vote.classList.add("btn-primary")
+    if (!likeButton.classList.contains("btn-primary")) {
+        likeButton.classList.add("btn-primary")
     }
-    btn_up_vote.classList.remove("icons")
+    likeButton.classList.remove("icons")
 
-    if (!btn_down_vote.classList.contains("icons")) {
-        styleButton.classList.add("icons")
+    if (!dislikeButton.classList.contains("icons")) {
+        dislikeButton.classList.add("icons")
     }
-    styleButton.classList.remove("btn-primary")   
+    dislikeButton.classList.remove("btn-primary")   
 <% when false %>
-    if (!btn_down_vote.classList.contains("btn-primary")) {
-        btn_down_vote.classList.add("btn-primary")
+    if (!dislikeButton.classList.contains("btn-primary")) {
+        dislikeButton.classList.add("btn-primary")
     }
-    btn_down_vote.classList.remove("icons")
+    dislikeButton.classList.remove("icons")
 
-    if (!btn_up_vote.classList.contains("icons")) {
-        btn_up_vote.classList.add("icons")
+    if (!likeButton.classList.contains("icons")) {
+        likeButton.classList.add("icons")
     }
-    btn_up_vote.classList.remove("btn-primary")
+    likeButton.classList.remove("btn-primary")
 <% when nil %>
-    if (!btn_up_vote.classList.contains("icons")) {
-        btn_up_vote.classList.add("icons")
+    if (!likeButton.classList.contains("icons")) {
+        likeButton.classList.add("icons")
     }
-    btn_up_vote.classList.remove("btn-primary")
+    likeButton.classList.remove("btn-primary")
 
-    if (!btn_down_vote.classList.contains("icons")) {
-        styleButton.classList.add("icons")
+    if (!dislikeButton.classList.contains("icons")) {
+        dislikeButton.classList.add("icons")
     }
-    styleButton.classList.remove("btn-primary")
+    dislikeButton.classList.remove("btn-primary")
 <% end %>

@@ -16,6 +16,7 @@ class VideosController < ApplicationController
   def show
     @video = Video.find(params[:id])
     authorize @video
+    @interaction = Interaction.find_by(user_id: current_user.id, video_id: @video.id)
   end
 
   def new

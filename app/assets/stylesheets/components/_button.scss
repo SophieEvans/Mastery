@@ -26,12 +26,42 @@
   color: white;
 }
 
-#btn-flat-login {
-  padding: 8px 31px;
-  margin: 8px;
-}
-
-#btn-flat-signup {
+.btn-flat-signup {
   margin: 8px;
   padding-left: 26px;
+}
+
+.btn-flat-login {
+    padding: 8px 31px;
+    margin: 8px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+
+.btn-flat-login:hover {
+    background-color: gray;
+    color: white;
+
+}
+
+.btn-flat-signup {
+    padding: 8px 31px;
+    margin: 8px;
+    background-color: solid gray;
+    border: 1px white;
+    border-radius: 2px;
+}
+
+.btn-flat-signup:hover {
+    background-color: gray;
+    color: white;
+}
+
+.btn-flat-logout {
+    padding: 8px 31px;
+    margin: 8px;
+    background-color: rgb(254, 168, 158);
+    border: 1px solid gray;
+    border-radius: 2px;
 }

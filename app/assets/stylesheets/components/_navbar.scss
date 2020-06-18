@@ -1,18 +1,19 @@
-.navbar-lewagon {
+
+.navbar-lewagon-top {
   justify-content: space-between;
   background: white;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-lewagon-top .navbar-collapse {
   flex-grow: 0;
   font-size: 40px;
 }
 
-.navbar-lewagon .navbar-collapse a {
+.navbar-lewagon-top .navbar-collapse a {
   color: #4d7577;
 }
 
-.navbar-lewagon .navbar-collapse a:hover {
+.navbar-lewagon-top .navbar-collapse a:hover {
   color: #e83f43;
 }
 
@@ -20,21 +21,59 @@
   padding-right: 15px;
 }
 
+.navbar-lewagon {
+  justify-content: space-between;
+  background: #F4F4F4;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+  font-size: 40px;
+}
+
 .navbar-brand img {
   width: 16%;
   height: 64%;
   }
 
+
+// h1#mastery {
+//   justify-items: left;
+// }
+  #btn-logout {
+    bottom: 32px;
+    left: 232px;
+    font-size: 16px;
+    color: gray;
+  }
+
 @media (min-width: 100px) and (max-width: 768px) {
+
+  .navbar-lewagon-top .navbar-collapse {
+    display: flex;
+    justify-content: space-around;
+    background-color: none;
+  }
+
+  .navbar-lewagon-top .navbar-collapse a {
+  color: #e83f43;
+  }
+
+  .navbar-lewagon-top .navbar-collapse a:hover {
+    color: #4d7577;
+  }
+
   .navbar-brand img {
-    width: 24%;
+    width: 32%;
     height: 50%;
   }
+
   .navbar-lewagon .navbar-collapse {
     display: flex;
     justify-content: space-around;
     background-color: none;
   }
+
   .navbar-lewagon .navbar-collapse a {
   color: #e83f43;
   }
@@ -43,4 +82,15 @@
     color: #4d7577;
   }
 
+  .nav-item.active {
+    position: relative;
+  }
+
+  #btn-logout {
+    position: absolute;
+    bottom: 32px;
+    left: 232px;
+    font-size: 16px;
+    color: gray;
+  }
 }

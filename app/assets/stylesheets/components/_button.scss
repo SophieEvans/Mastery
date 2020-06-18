@@ -26,6 +26,34 @@
   color: white;
 }
 
+.btn-back-view {
+  padding-left: -1px;
+  width: 136px;
+  text-align: center;
+  margin: 0px;
+  margin-top: 16px;
+}
+
+.btn-flat-green-view {
+  display: flex;
+  justify-content: flex-end;
+  width: 136px;
+  text-align: centre;
+}
+
+.btn-flat-green {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #4d7577;
+  transition: background 0.3s ease;
+}
+
+.btn-flat-green:hover {
+  background: #e83f43;
+  color: white;
+}
+
 .btn-flat-signup {
   margin: 8px;
   padding-left: 26px;

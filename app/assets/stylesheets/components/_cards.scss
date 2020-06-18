@@ -96,7 +96,6 @@ grid-gap: 32px;
 .card-video h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
 }
 
 .card-video h3 {
@@ -117,7 +116,14 @@ grid-gap: 32px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  align-items: center;
   position: relative;
+}
+
+.card-video .card-video-infos h2 {
+  font-size: 24px;
+  color: #e83f43;
+  margin-left: 24px;
 }
 
 .card-video-infos .card-video-user {
@@ -125,6 +131,10 @@ grid-gap: 32px;
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.card-video-infos .card-btns {
+  float: right;
 }
 
 .card-video-pricing {

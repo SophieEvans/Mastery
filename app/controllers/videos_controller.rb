@@ -16,6 +16,8 @@ class VideosController < ApplicationController
   def show
     @video = Video.find(params[:id])
     authorize @video
+    @video.helpful = 0 if @video.helpful.nil?
+    @video.good_style = 0 if @video.good_style.nil?
     @interaction = Interaction.find_by(user_id: current_user.id, video_id: @video.id)
   end
 
@@ -60,6 +62,16 @@ class VideosController < ApplicationController
     @intermediate_completed_count = "#{completedInterVideos.count}/#{@intermediate_videos.count}"
     completedProVideos = Video.joins(:interactions, :sub_category).where("sub_categories.difficulty = 'pro' and interactions.user_id = #{current_user.id} and completed = true").uniq {|v| v.sub_category.name}
     @pro_completed_count = "#{completedProVideos.count}/#{@pro_videos.count}"
+
+    @my_videos = Video.where(user_id: 1)
+
+  #   @interactions_rookie = @rookie_videos.each do |video|
+  #     interaction = Interaction.where(user_id: current_user.id, video_id: video.id)
+  #     if interaction.completed == true
+  #       @score = current_user.rookie_completed += 1
+  #     end
+  #   end
+    
   end
 
   def search

@@ -3,6 +3,15 @@ var styleButton = document.getElementById("style")
 var likeButton = document.getElementById("like")
 var dislikeButton = document.getElementById("dislike")
 
+var helpfulCount =  document.getElementById("helpful-count")
+helpfulCount.innerHTML = "<%= @video.helpful %>"
+
+var goodStyleCount =  document.getElementById("good-style-count")
+goodStyleCount.innerHTML = "<%= @video.good_style %>"
+
+var voteCount =  document.getElementById("vote-count")
+voteCount.innerHTML = "<%= @video.rating %>"
+
 <% btn_helpful = @interaction.helpful ? "btn-primary" : "btn-flat" %>
 <% btn_good_style = @interaction.good_style ? "btn-primary" : "btn-back" %>
 <% btn_up_vote = @interaction.vote ? "btn-primary" : "icons" %>
@@ -30,4 +39,37 @@ var dislikeButton = document.getElementById("dislike")
         styleButton.classList.add("btn-back")
     }
     styleButton.classList.remove("btn-primary") 
+<% end %>
+
+<% case @interaction.vote %>
+<% when true %>
+    if (!likeButton.classList.contains("btn-primary")) {
+        likeButton.classList.add("btn-primary")
+    }
+    likeButton.classList.remove("icons")
+
+    if (!dislikeButton.classList.contains("icons")) {
+        dislikeButton.classList.add("icons")
+    }
+    dislikeButton.classList.remove("btn-primary")   
+<% when false %>
+    if (!dislikeButton.classList.contains("btn-primary")) {
+        dislikeButton.classList.add("btn-primary")
+    }
+    dislikeButton.classList.remove("icons")
+
+    if (!likeButton.classList.contains("icons")) {
+        likeButton.classList.add("icons")
+    }
+    likeButton.classList.remove("btn-primary")
+<% when nil %>
+    if (!likeButton.classList.contains("icons")) {
+        likeButton.classList.add("icons")
+    }
+    likeButton.classList.remove("btn-primary")
+
+    if (!dislikeButton.classList.contains("icons")) {
+        dislikeButton.classList.add("icons")
+    }
+    dislikeButton.classList.remove("btn-primary")
 <% end %>

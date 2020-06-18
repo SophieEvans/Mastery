@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(version: 2020_06_17_180637) do
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "helpful", default: false
+    t.boolean "good_style", default: false
+    t.boolean "vote"
     t.boolean "completed"
     t.boolean "helpful", default: false
     t.boolean "good_style", default: false

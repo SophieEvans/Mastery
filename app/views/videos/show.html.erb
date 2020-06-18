@@ -24,16 +24,28 @@
         <% btn_up_vote = @interaction.vote ? "btn-primary" : "icons" %>
         <% btn_down_vote = @interaction.vote ? "icons" : (@interaction.vote==nil ? "icons" : "btn-primary") %>
       <% end %>
-      <%= link_to "helpful", video_interactions_path(@video, interaction: { helpful: !@interaction.helpful }), method: :post, remote: true, class: "btn #{btn_helpful}", id: "helpful" %>
 
-      <%= link_to "good style", video_interactions_path(@video, interaction: { good_style: !@interaction.good_style }), method: :post, remote: true, class: "btn #{btn_good_style}", id: "style" %>
-      <%= link_to video_interactions_path(@video, interaction: { vote: (@interaction.vote ? nil : true) }), method: :post, remote: true, class: "#{btn_up_vote}", id: "like" do %>
-        <i class="far fa-thumbs-up"></i>
-      <% end %>
+      <div>
+        <%= link_to "helpful", video_interactions_path(@video, interaction: { helpful: !@interaction.helpful }), method: :post, remote: true, class: "btn #{btn_helpful}", id: "helpful" %>
+        <p id="helpful-count"><%= @video.helpful %></p><p>people found this helpful</p>
+      </div>
+
+      <div>
+        <%= link_to "good style", video_interactions_path(@video, interaction: { good_style: !@interaction.good_style }), method: :post, remote: true, class: "btn #{btn_good_style}", id: "style" %>
+        <p id="good-style-count"><%= @video.good_style %></p><p>likes</p>
+      </div>
+
+      <div>
+        <%= link_to video_interactions_path(@video, interaction: { upvote: true }), method: :post, remote: true, class: "#{btn_up_vote}", id: "like" do %>
+          <i class="far fa-thumbs-up"></i>
+        <% end %>
+        <%= link_to video_interactions_path(@video, interaction: { vote: true }), method: :post, remote: true, class: "#{btn_down_vote}", id: "dislike" do %>
+          <i class="far fa-thumbs-down"></i>
+        <% end %>
+        <p id="vote-count"><%= @video.rating %></p><p>upvotes</p>
+      </div>
+
       <i class="fas fa-user-graduate"></i>
-      <%= link_to video_interactions_path(@video, interaction: { vote: @interaction.vote ? false : (@interaction.vote==nil ? false : nil) }), method: :post, remote: true, class: "#{btn_down_vote}", id: "dislike" do %>
-        <i class="far fa-thumbs-down"></i>
-      <% end %>
     </div>
   </div>
 </div>

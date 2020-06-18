@@ -1,7 +1,7 @@
-var helpfulButton = document.getElementById("helpful")
+var helpfulButton = document.getElementById("btn-helpful")
 var styleButton = document.getElementById("style")
-var likeButton = document.getElementById("like")
-var dislikeButton = document.getElementById("dislike")
+var likeButton = document.getElementById("upvote")
+var dislikeButton = document.getElementById("downvote")
 
 var helpfulCount =  document.getElementById("helpful-count")
 helpfulCount.innerHTML = "<%= @video.helpful %>"

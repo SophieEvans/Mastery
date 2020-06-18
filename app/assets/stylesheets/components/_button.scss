@@ -65,3 +65,11 @@
     border: 1px solid gray;
     border-radius: 2px;
 }
+
+.btn-interaction {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+}

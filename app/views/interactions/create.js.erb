@@ -1,48 +1,55 @@
+
+// JS actions for helpful button and helpful count
+
 var helpfulButton = document.getElementById("btn-helpful")
-var styleButton = document.getElementById("style")
-var likeButton = document.getElementById("upvote")
-var dislikeButton = document.getElementById("downvote")
-
-var helpfulCount =  document.getElementById("helpful-count")
-helpfulCount.innerHTML = "<%= @video.helpful.to_s + " people found this helpful" %>"
-
-var goodStyleCount =  document.getElementById("good-style-count")
-goodStyleCount.innerHTML = "<%= @video.good_style.to_s + " likes" %>"
-
-var voteCount =  document.getElementById("vote-count")
-voteCount.innerHTML = "<%= @video.rating.to_s + " votes" %>"
-
-<% btn_helpful = @interaction.helpful ? "btn-primary" : "btn-flat" %>
-<% btn_good_style = @interaction.good_style ? "btn-primary" : "btn-back" %>
-<% btn_up_vote = @interaction.vote ? "btn-primary" : "icons" %>
-<% btn_down_vote = @interaction.vote ? "icons" : (@interaction.vote==nil ? "icons" : "btn-primary") %>
-
-<% if @interaction.helpful %>
+if (helpfulButton !== null) {
+  <% if @interaction.helpful %>
     if (!helpfulButton.classList.contains("btn-primary")) {
         helpfulButton.classList.add("btn-primary")
     }
     helpfulButton.classList.remove("btn-flat")   
-<% else %>
+  <% else %>
     if (!helpfulButton.classList.contains("btn-flat")) {
         helpfulButton.classList.add("btn-flat")
     }
     helpfulButton.classList.remove("btn-primary") 
-<% end %>
+  <% end %>
+}
 
-<% if @interaction.good_style %>
+var helpfulCount =  document.getElementById("helpful-count")
+if (helpfulCount !== null) {
+    helpfulCount.innerHTML = "<%= @video.helpful.to_s + " people found this helpful" %>"
+}
+
+// JS actions for good style button and good style count
+
+var styleButton = document.getElementById("style")
+if (styleButton !== null) {
+  <% if @interaction.good_style %>
     if (!styleButton.classList.contains("btn-primary")) {
         styleButton.classList.add("btn-primary")
     }
     styleButton.classList.remove("btn-back")   
-<% else %>
+  <% else %>
     if (!styleButton.classList.contains("btn-back")) {
         styleButton.classList.add("btn-back")
     }
     styleButton.classList.remove("btn-primary") 
-<% end %>
+  <% end %>
+}
 
-<% case @interaction.vote %>
-<% when true %>
+var goodStyleCount =  document.getElementById("good-style-count")
+if (goodStyleCount !== null) {
+    goodStyleCount.innerHTML = "<%= @video.good_style.to_s + " likes" %>"
+}
+
+// JS actions for like and dislike (up and down votes) buttons and count
+
+var likeButton = document.getElementById("upvote")
+var dislikeButton = document.getElementById("downvote")
+if (likeButton !== null && dislikeButton !== null) {
+  <% case @interaction.vote %>
+  <% when true %>
     if (!likeButton.classList.contains("btn-primary")) {
         likeButton.classList.add("btn-primary")
     }
@@ -52,7 +59,7 @@ voteCount.innerHTML = "<%= @video.rating.to_s + " votes" %>"
         dislikeButton.classList.add("icons")
     }
     dislikeButton.classList.remove("btn-primary")   
-<% when false %>
+  <% when false %>
     if (!dislikeButton.classList.contains("btn-primary")) {
         dislikeButton.classList.add("btn-primary")
     }
@@ -62,7 +69,7 @@ voteCount.innerHTML = "<%= @video.rating.to_s + " votes" %>"
         likeButton.classList.add("icons")
     }
     likeButton.classList.remove("btn-primary")
-<% when nil %>
+  <% when nil %>
     if (!likeButton.classList.contains("icons")) {
         likeButton.classList.add("icons")
     }
@@ -72,4 +79,47 @@ voteCount.innerHTML = "<%= @video.rating.to_s + " votes" %>"
         dislikeButton.classList.add("icons")
     }
     dislikeButton.classList.remove("btn-primary")
-<% end %>
+  <% end %>
+}
+
+var voteCount =  document.getElementById("vote-count")
+if (voteCount !== null) {
+    voteCount.innerHTML = "<%= @video.rating.to_s + " votes" %>"
+}
+
+// JS actions for mastered/rewind buttons
+
+var masteredButton = document.getElementById("btn-mastered")
+var masteredStamp = document.getElementById("mastered-stamp")
+if (masteredButton !== null && masteredStamp !== null) {
+  <% if @interaction.completed? %>
+    if (!masteredButton.classList.contains("btn-flat")) {
+        masteredButton.classList.add("btn-flat")
+    }
+    masteredButton.classList.remove("btn-flat-green")
+    masteredButton.innerText = "rewind"
+  <% else %>
+    if (!masteredButton.classList.contains("btn-flat-green")) {
+        masteredButton.classList.add("btn-flat-green")
+    }
+    masteredButton.classList.remove("btn-flat")
+    masteredButton.innerText = "mastered it"
+  <% end %>
+  masteredStamp.classList.toggle("hidden")
+}
+
+
+
+
+<% btn_mastered = @interaction.completed ? "btn btn-flat-green btn-flat-green-view" : "btn btn-flat btn-flat-green-view" %>
+<% btn_helpful = @interaction.helpful ? "btn-primary" : "btn-flat" %>
+<% btn_good_style = @interaction.good_style ? "btn-primary" : "btn-back" %>
+<% btn_up_vote = @interaction.vote ? "btn-primary" : "icons" %>
+<% btn_down_vote = @interaction.vote ? "icons" : (@interaction.vote==nil ? "icons" : "btn-primary") %>
+
+
+
+
+
+
+

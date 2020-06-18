@@ -8,33 +8,26 @@ class InteractionsController < ApplicationController
     @interaction = Interaction.find_or_initialize_by(user_id: current_user.id, video_id: @video.id)
     authorize @interaction
     # if exists we update
-    unless @interaction.persisted?
-      @interaction = Interaction.new(interaction_params)
-      @interaction.video = @video
-      @interaction.user = current_user
-    end
+    #unless @interaction.persisted?
+      #@interaction = Interaction.new(interaction_params)
+      #@interaction.video = @video
+      #@interaction.user = current_user
+    #end
 
-    @interaction.completed = interaction_params[:completed] if interaction_params[:completed].present?
+    @interaction.completed = !@interaction.completed if interaction_params[:completed].present?
     
     if interaction_params[:helpful].present?
+      @video.helpful += @interaction.helpful ? -1 : 1
       @interaction.helpful = !@interaction.helpful
-      if @interaction.helpful
-        @video.helpful += 1
-      else
-        @video.helpful -= 1
-      end
     end
 
     if interaction_params[:good_style].present?
+      @video.good_style += @interaction.good_style ? -1 : 1
       @interaction.good_style = !@interaction.good_style
-      if @interaction.good_style
-        @video.good_style += 1
-      else
-        @video.good_style -= 1
-      end
     end
 
     if interaction_params[:upvote].present?
+      
       if @interaction.vote
         @video.rating -= 1
       elsif @interaction.vote.nil?
@@ -59,16 +52,16 @@ class InteractionsController < ApplicationController
     @interaction.save
     @video.save
 
-    if interaction_params[:completed].present?
+    # if interaction_params[:completed].present?
         # Redirect back to other page
-      redirect_to "#{root_url}/videos/dashboard" and return
-    else
+      # redirect_to "#{root_url}/videos/dashboard" and return
+    # else
       # redirect user to show
-      respond_to do |format|
-        format.html { redirect_to @video }
-        format.js
-      end
+    respond_to do |format|
+      format.html { redirect_to @video }
+      format.js
     end
+    # end
   end
 
   private

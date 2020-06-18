@@ -14,55 +14,78 @@ class InteractionsController < ApplicationController
       @interaction.user = current_user
     end
 
-    if interaction_params[:helpful].present?
-      @interaction.helpful = !@interaction.helpful
-      if @interaction.helpful
-        @video.helpful += 1
-      else
-        @video.helpful -= 1
-      end
-    end
-
-    if interaction_params[:good_style].present?
-      @interaction.good_style = !@interaction.good_style
-      if @interaction.good_style
-        @video.good_style += 1
-      else
-        @video.good_style -= 1
-      end
-    end
-
-    # Work in progress
-    if interaction_params[:upvote].present?
-      if @interaction.vote
-        @video.rating -= 1
-      elsif @interaction.vote.nil?
-        @video.rating += 1
-      else
-        @video.rating += 2
-      end
-      @interaction.vote = @interaction.vote ? nil : true
-    end
-
-    if interaction_params[:vote].present?
-      if @interaction.vote
-        @video.rating -= 2
-      elsif @interaction.vote.nil?
-        @video.rating -= 1
-      else
-        @video.rating += 1
-      end
-      @interaction.vote = @interaction.vote ? false : (@interaction.vote==nil ? false : nil)
-    end
-
+    @interaction.helpful = !@interaction.helpful if interaction_params[:helpful].present?
+    @interaction.good_style = !@interaction.good_style if interaction_params[:good_style].present?
+    @interaction.completed = interaction_params[:completed] if interaction_params[:completed].present?
     @interaction.save
-    @video.save
       # redirect user to show
-    respond_to do |format|
-      format.html { redirect_to @video }
-      format.js
+
+        # Work in progress
+    #if interaction_params[:vote].present?
+      #@interaction.vote = interaction_params[:vote]
+    #case @interaction.vote
+    #when true
+      #@interaction.vote = nil
+    #when nil
+      #@interaction.vote
+    #when false
+      #@interaction.vote = nil
+    #
+    if interaction_params[:completed].present?
+      # Redirect back to other page
+      redirect_to "#{root_url}/videos/dashboard" and return
+    else
+
+      if interaction_params[:helpful].present?
+        @interaction.helpful = !@interaction.helpful
+        if @interaction.helpful
+          @video.helpful += 1
+        else
+          @video.helpful -= 1
+        end
+      end
+
+      if interaction_params[:good_style].present?
+        @interaction.good_style = !@interaction.good_style
+        if @interaction.good_style
+          @video.good_style += 1
+        else
+          @video.good_style -= 1
+        end
+      end
+
+      # Work in progress
+      if interaction_params[:upvote].present?
+        if @interaction.vote
+          @video.rating -= 1
+        elsif @interaction.vote.nil?
+          @video.rating += 1
+        else
+          @video.rating += 2
+        end
+        @interaction.vote = @interaction.vote ? nil : true
+      end
+
+      if interaction_params[:vote].present?
+        if @interaction.vote
+          @video.rating -= 2
+        elsif @interaction.vote.nil?
+          @video.rating -= 1
+        else
+          @video.rating += 1
+        end
+        @interaction.vote = @interaction.vote ? false : (@interaction.vote==nil ? false : nil)
+      end
+
+      @interaction.save
+      @video.save
+      # redirect user to show
+      respond_to do |format|
+        format.html { redirect_to @video }
+        format.js
+      end
     end
-  end  
+  end
 
   private
 

@@ -31,3 +31,36 @@ var dislikeButton = document.getElementById("dislike")
     }
     styleButton.classList.remove("btn-primary") 
 <% end %>
+
+<% case @interaction.vote %>
+<% when true %>
+    if (!likeButton.classList.contains("btn-primary")) {
+        likeButton.classList.add("btn-primary")
+    }
+    likeButton.classList.remove("icons")
+
+    if (!dislikeButton.classList.contains("icons")) {
+        dislikeButton.classList.add("icons")
+    }
+    dislikeButton.classList.remove("btn-primary")   
+<% when false %>
+    if (!dislikeButton.classList.contains("btn-primary")) {
+        dislikeButton.classList.add("btn-primary")
+    }
+    dislikeButton.classList.remove("icons")
+
+    if (!likeButton.classList.contains("icons")) {
+        likeButton.classList.add("icons")
+    }
+    likeButton.classList.remove("btn-primary")
+<% when nil %>
+    if (!likeButton.classList.contains("icons")) {
+        likeButton.classList.add("icons")
+    }
+    likeButton.classList.remove("btn-primary")
+
+    if (!dislikeButton.classList.contains("icons")) {
+        dislikeButton.classList.add("icons")
+    }
+    dislikeButton.classList.remove("btn-primary")
+<% end %>

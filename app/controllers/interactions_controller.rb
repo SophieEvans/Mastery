@@ -14,17 +14,14 @@ class InteractionsController < ApplicationController
 
     @interaction.helpful = !@interaction.helpful if interaction_params[:helpful].present?
     @interaction.good_style = !@interaction.good_style if interaction_params[:good_style].present?
-    
     # Work in progress
-    #if interaction_params[:vote].present?
-      #@interaction.vote = interaction_params[:vote]
-    #case @interaction.vote
-    #when true
-      #@interaction.vote = nil
-    #when nil
-      #@interaction.vote 
-    #when false
-      #@interaction.vote = nil
+    if interaction_params[:upvote].present?
+      @interaction.vote = @interaction.vote ? nil : true
+    end
+
+    if interaction_params[:vote].present?
+      @interaction.vote = @interaction.vote ? false : (@interaction.vote==nil ? false : nil)
+    end
 
     @interaction.save
       # redirect user to show
@@ -37,6 +34,6 @@ class InteractionsController < ApplicationController
   private
 
   def interaction_params
-    params.require(:interaction).permit(:completed, :helpful, :good_style, :vote)
+    params.require(:interaction).permit(:completed, :helpful, :good_style, :vote, :upvote)
   end
 end

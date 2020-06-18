@@ -1,5 +1,6 @@
 .main_container {
   margin: 32px;
+  margin-top: 0px;
   h2 {
     color: #4d7577;
   }
@@ -8,6 +9,8 @@
 .heading-container {
   display: flex;
   justify-content: space-around;
+  margin-top: -16px;
+  margin-bottom: 16px;
   ///display: grid;
   ///grid-template-columns: 2fr 1fr;
   ///grid-gap: 8px;

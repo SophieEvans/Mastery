@@ -26,12 +26,12 @@
       <% end %>
 
       <div>
-        <%= link_to "helpful", video_interactions_path(@video, interaction: { helpful: !@interaction.helpful }), method: :post, remote: true, class: "btn #{btn_helpful}", id: "helpful" %>
+        <%= link_to "helpful", video_interactions_path(@video, interaction: { helpful: true }), method: :post, remote: true, class: "btn #{btn_helpful}", id: "helpful" %>
         <p id="helpful-count"><%= @video.helpful %></p><p>people found this helpful</p>
       </div>
 
       <div>
-        <%= link_to "good style", video_interactions_path(@video, interaction: { good_style: !@interaction.good_style }), method: :post, remote: true, class: "btn #{btn_good_style}", id: "style" %>
+        <%= link_to "good style", video_interactions_path(@video, interaction: { good_style: true }), method: :post, remote: true, class: "btn #{btn_good_style}", id: "style" %>
         <p id="good-style-count"><%= @video.good_style %></p><p>likes</p>
       </div>
 

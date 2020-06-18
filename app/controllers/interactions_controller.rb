@@ -11,28 +11,33 @@ class InteractionsController < ApplicationController
       @interaction.video = @video
       @interaction.user = current_user
     end
-
     @interaction.helpful = !@interaction.helpful if interaction_params[:helpful].present?
     @interaction.good_style = !@interaction.good_style if interaction_params[:good_style].present?
-    
-    # Work in progress
+    @interaction.completed = interaction_params[:completed] if interaction_params[:completed].present?
+    @interaction.save
+      # redirect user to show
+
+        # Work in progress
     #if interaction_params[:vote].present?
       #@interaction.vote = interaction_params[:vote]
     #case @interaction.vote
     #when true
       #@interaction.vote = nil
     #when nil
-      #@interaction.vote 
+      #@interaction.vote
     #when false
       #@interaction.vote = nil
-
-    @interaction.save
-      # redirect user to show
-    respond_to do |format|
-      format.html { redirect_to @video }
-      format.js
+    #
+    if interaction_params[:completed].present?
+      # Redirect back to other page
+    redirect_to "#{root_url}/videos/dashboard" and return
+    else
+      respond_to do |format|
+        format.html { redirect_to @video }
+        format.js
+      end
     end
-  end  
+  end
 
   private
 

@@ -123,7 +123,6 @@ grid-gap: 32px;
 .card-video .card-video-infos h2 {
   font-size: 24px;
   color: #e83f43;
-  margin-left: 24px;
 }
 
 .card-video-infos .card-video-user {
@@ -157,26 +156,11 @@ grid-gap: 32px;
   background-color: rgb(240,240,240);
 }
 
-.card-category .icons {
-  font-size: .8em;
-  display: block;
-  text-align: center;
-}
-#like {
-  padding: 8px;
-  color: #ED7A6A;
-  display: inline-block;
-  text-align: left;
-  margin-top: 32px;
-  margin-bottom: 0;
-  width: 100%;
-}
-#helpful {
-  display: inline-block;
-  padding: 8px;
-  text-align: left;
-  width: 100%;
-  color: #ED7A6A;
+#results {
+  h2 {
+    font-size: 16px;
+    color: #4d7577;
+  }
 }
 
 .stamp {

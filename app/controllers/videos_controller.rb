@@ -54,12 +54,12 @@ class VideosController < ApplicationController
     @intermediate_videos = Video.joins(:sub_category).where(sub_categories: {difficulty: "intermediate"}).uniq {|v| v.sub_category.name}
     @pro_videos = Video.joins(:sub_category).where(sub_categories: {difficulty: "pro"}).uniq {|v| v.sub_category.name}
 
-  #   @interactions_rookie = @rookie_videos.each do |video|
-  #     interaction = Interaction.where(user_id: current_user.id, video_id: video.id)
-  #     if interaction.completed == true
-  #       @score = current_user.rookie_completed += 1
-  #     end
-  #   end
+    completedRookieVideos = Video.joins(:interactions,:sub_category).where("sub_categories.difficulty = 'rookie' and interactions.user_id = #{current_user.id} and completed = true").uniq {|v| v.sub_category.name}
+    @rookie_completed_count = "#{completedRookieVideos.count}/#{@rookie_videos.count}"
+    completedInterVideos = Video.joins(:interactions,:sub_category).where("sub_categories.difficulty = 'intermediate' and interactions.user_id = #{current_user.id} and completed = true").uniq {|v| v.sub_category.name}
+    @intermediate_completed_count = "#{completedInterVideos.count}/#{@intermediate_videos.count}"
+    completedProVideos = Video.joins(:interactions, :sub_category).where("sub_categories.difficulty = 'pro' and interactions.user_id = #{current_user.id} and completed = true").uniq {|v| v.sub_category.name}
+    @pro_completed_count = "#{completedProVideos.count}/#{@pro_videos.count}"
   end
 
   def search

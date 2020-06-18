@@ -14,23 +14,8 @@ class InteractionsController < ApplicationController
       @interaction.user = current_user
     end
 
-    @interaction.helpful = !@interaction.helpful if interaction_params[:helpful].present?
-    @interaction.good_style = !@interaction.good_style if interaction_params[:good_style].present?
     @interaction.completed = interaction_params[:completed] if interaction_params[:completed].present?
-    @interaction.save
-      # redirect user to show
-
-        # Work in progress
-    #if interaction_params[:vote].present?
-      #@interaction.vote = interaction_params[:vote]
-    #case @interaction.vote
-    #when true
-      #@interaction.vote = nil
-    #when nil
-      #@interaction.vote
-    #when false
-      #@interaction.vote = nil
-    #
+      
     if interaction_params[:completed].present?
       # Redirect back to other page
       redirect_to "#{root_url}/videos/dashboard" and return

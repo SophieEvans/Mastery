@@ -15,7 +15,7 @@ class InteractionsController < ApplicationController
     end
 
     @interaction.completed = interaction_params[:completed] if interaction_params[:completed].present?
-      
+    @interaction.save
     if interaction_params[:completed].present?
       # Redirect back to other page
       redirect_to "#{root_url}/videos/dashboard" and return

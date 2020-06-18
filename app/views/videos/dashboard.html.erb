@@ -1,6 +1,6 @@
 <div class="main_container">
   <div class="heading-container">
-    <h2>your dashboard</h2>
+    <h2><strong>what's mastered?</strong></h2>
   </div>
   <h4>rookie level <%= @rookie_completed_count %></h4>
   <div class="bd-example">
@@ -41,53 +41,13 @@
             <% if i == '0' %>
               <div class="carousel-item active">
                 <div class="card-video">
-                  <% interaction = video.interactions.find {|i| i.user_id == current_user.id} %>
-                  <% if interaction && interaction.completed? %>
-                    <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
-                    <%= image_tag "stamp.png", alt: "stamp", class: "stamp" %>
-                  <% else %>
-                    <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
-                  <% end %>
-                    <div class="card-video-infos">
-                      <div>
-                        <h2><%= video.sub_category.name %></h2>
-                      </div>
-                      <div >
-                        <% interaction = Interaction.find_by(user_id: current_user.id, video_id: video.id) %>
-                         <% if interaction && interaction.completed? %>
-                          <%= link_to "rewind", video_interactions_path(video, interaction: {completed: false}), method: "POST", class: "btn btn-flat btn-flat-green-view" %>
-                        <% else  %>
-                          <%= link_to "mastered it", video_interactions_path(video, interaction: {completed: true}), method: "POST", class: "btn btn-flat-green btn-flat-green-view" %>
-                        <% end %>
-                        <%= link_to 'view video', video_path(video), class: "btn btn-back btn-back-view"%>
-                      </div>
-                    </div>
+                  <%= render 'carousel_card', video: video %>
                 </div>
               </div>
             <% else %>
                 <div class="carousel-item">
                   <div class="card-video">
-                    <% interaction = video.interactions.find {|i| i.user_id == current_user.id} %>
-                    <% if interaction && interaction.completed? %>
-                      <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
-                      <%= image_tag "stamp.png", alt: "stamp", class: "stamp" %>
-                    <% else %>
-                      <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
-                    <% end %>
-                      <div class="card-video-infos">
-                        <div>
-                          <h2><%= video.sub_category.name %></h2>
-                        </div>
-                        <div>
-                          <% interaction = Interaction.find_by(user_id: current_user.id, video_id: video.id) %>
-                           <% if interaction && interaction.completed? %>
-                            <%= link_to "rewind", video_interactions_path(video, interaction: {completed: false}), method: "POST", class: "btn btn-flat btn-flat-green-view" %>
-                          <% else  %>
-                            <%= link_to "mastered it", video_interactions_path(video, interaction: {completed: true}), method: "POST", class: "btn btn-flat-green btn-flat-green-view" %>
-                          <% end %>
-                          <%= link_to 'view video', video_path(video), class: "btn btn-back btn-back-view" %>
-                        </div>
-                      </div>
+                    <%= render 'carousel_card', video: video %>
                   </div>
                 </div>
               <% end %>
@@ -114,53 +74,13 @@
               <% if i == '0' %>
                 <div class="carousel-item active">
                   <div class="card-video">
-                    <% interaction = video.interactions.find {|i| i.user_id == current_user.id} %>
-                    <% if interaction && interaction.completed? %>
-                      <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
-                      <%= image_tag "stamp.png", alt: "stamp", class: "stamp" %>
-                    <% else %>
-                      <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
-                    <% end %>
-                      <div class="card-video-infos">
-                        <div>
-                          <h2><%= video.sub_category.name %></h2>
-                        </div>
-                        <div>
-                          <% interaction = Interaction.find_by(user_id: current_user.id, video_id: video.id) %>
-                           <% if interaction && interaction.completed? %>
-                            <%= link_to "rewind", video_interactions_path(video, interaction: {completed: false}), method: "POST", class: "btn btn-flat btn-flat-green-view" %>
-                          <% else  %>
-                            <%= link_to "mastered it", video_interactions_path(video, interaction: {completed: true}), method: "POST", class: "btn btn-flat-green btn-flat-green-view" %>
-                          <% end %>
-                          <%= link_to 'view video', video_path(video), class: "btn btn-back btn-back-view" %>
-                        </div>
-                      </div>
+                    <%= render 'carousel_card', video: video %>
                   </div>
                 </div>
               <% else %>
                 <div class="carousel-item">
                   <div class="card-video">
-                    <% interaction = video.interactions.find {|i| i.user_id == current_user.id} %>
-                    <% if interaction && interaction.completed? %>
-                      <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
-                      <%= image_tag "stamp.png", alt: "stamp", class: "stamp" %>
-                    <% else %>
-                      <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
-                    <% end %>
-                      <div class="card-video-infos">
-                        <div>
-                          <h2><%= video.sub_category.name %></h2>
-                        </div>
-                        <div>
-                          <% interaction = Interaction.find_by(user_id: current_user.id, video_id: video.id) %>
-                           <% if interaction && interaction.completed? %>
-                            <%= link_to "rewind", video_interactions_path(video, interaction: {completed: false}), method: "POST", class: "btn btn-flat btn-flat-green-view" %>
-                          <% else  %>
-                            <%= link_to "mastered it", video_interactions_path(video, interaction: {completed: true}), method: "POST", class: "btn btn-flat-green btn-flat-green-view" %>
-                          <% end %>
-                          <%= link_to 'view video', video_path(video), class: "btn btn-back btn-back-view" %>
-                        </div>
-                      </div>
+                    <%= render 'carousel_card', video: video %>
                   </div>
                 </div>
               <% end %>

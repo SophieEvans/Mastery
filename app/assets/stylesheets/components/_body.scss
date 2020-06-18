@@ -1,16 +1,33 @@
 .main_container {
   margin: 32px;
+  margin-top: 0px;
   h2 {
     color: #4d7577;
+    text-align: left;
+  }
+  h4 {
+    color: #495057;
+    margin: 16px;
+    text-align: center;
   }
 }
 
 .heading-container {
   display: flex;
   justify-content: space-around;
+  margin-top: -16px;
+  margin-bottom: 16px;
   ///display: grid;
   ///grid-template-columns: 2fr 1fr;
   ///grid-gap: 8px;
+}
+
+#heading-show {
+  flex-direction: column;
+  text-align: left;
+  h5 {
+    color: #e83f43;
+  }
 }
 
 .grid-heading {
@@ -24,4 +41,9 @@ a:hover {
 
 .body {
   background-color: #e8e6e6;
+}
+
+#video-level {
+  color: #e83f43;
+  font-weight: bold;
 }

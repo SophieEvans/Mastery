@@ -39,6 +39,7 @@
   justify-content: center;
   width: 136px;
   text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .btn-flat-green {
@@ -47,6 +48,7 @@
   border-radius: 4px;
   background: #4d7577;
   transition: background 0.3s ease;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .btn-flat-green:hover {
@@ -63,6 +65,7 @@
   width: 104px;
   margin-top: 8px;
   margin-left: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .btn-flat-login:hover {
@@ -80,6 +83,7 @@
     width: 104px;
     margin-top: 16px;
     margin-left: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .btn-flat-signup:hover {

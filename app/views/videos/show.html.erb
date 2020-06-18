@@ -26,14 +26,14 @@
       <% end %>
 
       <div class="flex-column btn-interaction">
-        <%= link_to video_interactions_path(@video, interaction: { helpful: !@interaction.helpful }), method: :post, remote: true, class: "#{btn_helpful}", id: "btn-helpful" do %>
+        <%= link_to video_interactions_path(@video, interaction: { helpful: true }), method: :post, remote: true, class: "#{btn_helpful}", id: "btn-helpful" do %>
           <i class="fas fa-bolt"></i>
         <% end %>
         <p id="helpful-count"><%= @video.helpful.to_s + " people found this helpful"%></p>
       </div>
 
       <div class="flex-column btn-interaction">
-        <%= link_to "good style", video_interactions_path(@video, interaction: { good_style: !@interaction.good_style }), method: :post, remote: true, class: "#{btn_good_style}", id: "style" %>
+        <%= link_to "good style", video_interactions_path(@video, interaction: { good_style: true }), method: :post, remote: true, class: "#{btn_good_style}", id: "style" %>
         <p id="good-style-count"><%= @video.good_style.to_s + " likes" %></p>
       </div>
 

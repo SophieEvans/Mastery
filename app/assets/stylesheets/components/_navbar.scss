@@ -1,3 +1,4 @@
+
 .navbar-lewagon-top {
   justify-content: space-between;
   background: white;
@@ -22,7 +23,7 @@
 
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #F4F4F4;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -35,28 +36,15 @@
   height: 64%;
   }
 
-.dropdown-item {
-  text-align: center;
-  background-color: whitesmoke;
-  color: #e83f43;
-  padding: 8px 24px;
-  border-radius: 4px;
-  transition: background 0.3s ease;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.dropdown-menu {
-  border: none;
-  background-color: none;
-}
 // h1#mastery {
 //   justify-items: left;
 // }
-
-// .logo {
-//   float: left;
-//   margin-right: 8px;
-// }
+  #btn-logout {
+    bottom: 32px;
+    left: 232px;
+    font-size: 16px;
+    color: gray;
+  }
 
 @media (min-width: 100px) and (max-width: 768px) {
 
@@ -75,7 +63,7 @@
   }
 
   .navbar-brand img {
-    width: 24%;
+    width: 32%;
     height: 50%;
   }
 
@@ -93,4 +81,15 @@
     color: #4d7577;
   }
 
+  .nav-item.active {
+    position: relative;
+  }
+
+  #btn-logout {
+    position: absolute;
+    bottom: 32px;
+    left: 232px;
+    font-size: 16px;
+    color: gray;
+  }
 }

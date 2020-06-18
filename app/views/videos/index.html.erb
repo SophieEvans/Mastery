@@ -4,13 +4,9 @@
    <% if @videos.present? %>
     <h2 class="grid-heading">Master the tricks and <strong>track, share, rate</strong></h2>
   <% end %>
-    <%= link_to "Logout", destroy_user_session_path, class: "", :method => :delete if user_signed_in? %>
-
     <div>
-    <span>
     <%= link_to "Login", new_user_session_path, class: "btn btn-flat-login" unless user_signed_in? %>
     <%= link_to "Signup", new_user_registration_path, class: "btn btn-flat-signup" unless user_signed_in? %>
-    </span>
     </div>
   </div>
   <div class="cards">
@@ -23,12 +19,16 @@
             <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
               <div class="card-video-infos">
                 <div>
-                  <h6><%= video.title %> </h6>
-                  <p><%= video.sub_category.name %></p>
-                   <p><%= video.sub_category.difficulty %></p>
+                  <h6><strong><%= video.title %></strong></h6>
+                  <h2><%= video.sub_category.name %></h2>
+                   <h2><%= video.sub_category.difficulty %></h2>
 
                 </div>
-                  <h2 class="card-video-pricing"> <%=video.helpful%> Votes </h2>
+                  <div class="card-video-pricing">
+                   <h2 ><%=video.helpful %>
+                      <span><i class="fa fa-bolt"></i></span>
+                    </h2>
+                  </div>
               </div>
           </div>
         <% end %>

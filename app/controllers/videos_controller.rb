@@ -18,7 +18,7 @@ class VideosController < ApplicationController
     authorize @video
     @video.helpful = 0 if @video.helpful.nil?
     @video.good_style = 0 if @video.good_style.nil?
-    @interaction = Interaction.find_by(user_id: current_user.id, video_id: @video.id)
+    @interaction = Interaction.find_by(user_id: current_user.try(:id), video_id: @video.id)
   end
 
   def new
@@ -71,7 +71,7 @@ class VideosController < ApplicationController
   #       @score = current_user.rookie_completed += 1
   #     end
   #   end
-    
+
   end
 
   def search

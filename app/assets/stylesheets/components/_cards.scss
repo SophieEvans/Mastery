@@ -137,7 +137,10 @@ grid-gap: 32px;
 }
 
 .card-video-pricing {
-  color: gray;
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  text-align: center;
 }
 
 .card-category {

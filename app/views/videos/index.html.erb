@@ -23,12 +23,16 @@
             <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
               <div class="card-video-infos">
                 <div>
-                  <h6><%= video.title %> </h6>
-                  <p><%= video.sub_category.name %></p>
-                   <p><%= video.sub_category.difficulty %></p>
+                  <h6><strong>'<%= video.title %>'</strong></h6>
+                  <h2><%= video.sub_category.name %></h2>
+                   <h2><%= video.sub_category.difficulty %></h2>
 
                 </div>
-                  <h2 class="card-video-pricing"> <%=video.helpful%> Votes </h2>
+                  <div class="card-video-pricing">
+                   <h2 ><%=video.helpful %>
+                      <span><i class="fa fa-bolt"></i></span>
+                    </h2>
+                  </div>
               </div>
           </div>
         <% end %>

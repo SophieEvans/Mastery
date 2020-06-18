@@ -1,16 +1,16 @@
-var helpfulButton = document.getElementById("helpful")
+var helpfulButton = document.getElementById("btn-helpful")
 var styleButton = document.getElementById("style")
-var likeButton = document.getElementById("like")
-var dislikeButton = document.getElementById("dislike")
+var likeButton = document.getElementById("upvote")
+var dislikeButton = document.getElementById("downvote")
 
 var helpfulCount =  document.getElementById("helpful-count")
-helpfulCount.innerHTML = "<%= @video.helpful %>"
+helpfulCount.innerHTML = "<%= @video.helpful.to_s + " people found this helpful" %>"
 
 var goodStyleCount =  document.getElementById("good-style-count")
-goodStyleCount.innerHTML = "<%= @video.good_style %>"
+goodStyleCount.innerHTML = "<%= @video.good_style.to_s + " likes" %>"
 
 var voteCount =  document.getElementById("vote-count")
-voteCount.innerHTML = "<%= @video.rating %>"
+voteCount.innerHTML = "<%= @video.rating.to_s + " votes" %>"
 
 <% btn_helpful = @interaction.helpful ? "btn-primary" : "btn-flat" %>
 <% btn_good_style = @interaction.good_style ? "btn-primary" : "btn-back" %>

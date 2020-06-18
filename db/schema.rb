@@ -50,9 +50,6 @@ ActiveRecord::Schema.define(version: 2020_06_17_180637) do
     t.boolean "good_style", default: false
     t.boolean "vote"
     t.boolean "completed"
-    t.boolean "helpful", default: false
-    t.boolean "good_style", default: false
-    t.boolean "vote"
     t.index ["user_id"], name: "index_interactions_on_user_id"
     t.index ["video_id"], name: "index_interactions_on_video_id"
   end
@@ -84,7 +81,7 @@ ActiveRecord::Schema.define(version: 2020_06_17_180637) do
   create_table "videos", force: :cascade do |t|
     t.integer "helpful"
     t.integer "good_style"
-    t.integer "rating"
+    t.integer "rating", default: 0
     t.bigint "user_id", null: false
     t.bigint "sub_category_id", null: false
     t.string "you_tube_key"

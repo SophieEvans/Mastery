@@ -86,3 +86,11 @@
     background-color: gray;
     color: white;
 }
+
+.btn-interaction {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+}

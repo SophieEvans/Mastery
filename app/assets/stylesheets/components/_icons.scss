@@ -32,19 +32,28 @@
 
 .font-awesome-div {
   display: flex;
+  margin-right: 10px;
 }
 
 #vote-count {
-  font-size: 19px;
+  font-size: 17px;
   margin: 0 8px;
 }
 
 #good-style-count {
-  font-size: 19px;
+  font-size: 17px;
   margin: 0 8px;
 }
 
 #helpful-count {
-  font-size: 19px;
+  font-size: 17px;
   margin: 0 8px;
+}
+
+.fa-chevron-circle-down:before {
+    color: #e83f43;
+}
+
+.fa-chevron-circle-up:before {
+    color: #e83f43;
 }

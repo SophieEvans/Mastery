@@ -30,27 +30,27 @@ frontside_ollie = SubCategory.create!(name: "frontside ollie", difficulty: "rook
 drop_in = SubCategory.create!(name: "drop in", difficulty: "rookie")
 # videos and interactions
 video_ollie = Video.create!(title: "ollie slo-mo",
-  user_id: gabriel.id, sub_category_id: ollie.id, you_tube_key: "QjuuRA-b94I")
+  user_id: gabriel.id, sub_category_id: ollie.id, you_tube_key: "QjuuRA-b94I", good_style: 7, rating: 6, helpful: 44)
 interaction = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_ollie.id, viewed: true)
 video_ollie2 = Video.create!(title: "ollie from above",
-  user_id: sophie.id, sub_category_id: ollie.id, you_tube_key: "4-Y8Dsmh7fE")
+  user_id: sophie.id, sub_category_id: ollie.id, you_tube_key: "4-Y8Dsmh7fE", good_style: 5, rating: 8, helpful: 27)
 interaction1 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_ollie2.id, viewed: true)
 video_ollie3 = Video.create!(title: "high ollie",
-  user_id: vinny.id, sub_category_id: ollie.id, you_tube_key: "ewS6fbFszo8")
+  user_id: vinny.id, sub_category_id: ollie.id, you_tube_key: "ewS6fbFszo8", good_style: 8, rating: 11, helpful: 99)
 interaction2 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_ollie3.id, viewed: true)
 video_nollie = Video.create!(title: "crack nollie",
-  user_id: gabriel.id, sub_category_id: nollie.id, you_tube_key: "6N_Ku9HlhgA")
+  user_id: gabriel.id, sub_category_id: nollie.id, you_tube_key: "6N_Ku9HlhgA", good_style: 15, rating: 22, helpful: 41)
 interaction2a = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_nollie.id, viewed: true)
 video_nollie2 = Video.create!(title: "nollie slo-mo",
-  user_id: sophie.id, sub_category_id: nollie.id, you_tube_key: "fp_UMkZabvk")
+  user_id: sophie.id, sub_category_id: nollie.id, you_tube_key: "fp_UMkZabvk", good_style: 11, rating: 17, helpful: 28)
 interaction2b = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_nollie2.id, viewed: true)
 video_frontside180 = Video.create!(title: "frontside 180 slo-mo",
-  user_id: gabriel.id, sub_category_id: frontside180.id, you_tube_key: "__u6Kdqa0WA")
+  user_id: gabriel.id, sub_category_id: frontside180.id, you_tube_key: "__u6Kdqa0WA", good_style: 10, rating: 33, helpful: 20)
 interaction2b = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_frontside180.id, viewed: true)
 # subcategory
@@ -64,19 +64,19 @@ frontside_tailslide = SubCategory.create!(name: "frontside tailslide", difficult
 threesixty_flip = SubCategory.create!(name: "360 flip", difficulty: "intermediate")
 # videos and interactions
 video_varial_kickflip = Video.create!(title: "clean varial kickflip",
-  user_id: vinny.id, sub_category_id: varial_kickflip.id, you_tube_key: "ocFOCVHE0Ho")
+  user_id: vinny.id, sub_category_id: varial_kickflip.id, you_tube_key: "ocFOCVHE0Ho", good_style: 17, rating: 5, helpful: 35)
 interaction3 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_varial_kickflip.id, viewed: true)
 video_frontside_pop_shove_it = Video.create!(title: "fs pop shuvit",
-  user_id: gabriel.id, sub_category_id: frontside_pop_shove_it.id, you_tube_key: "Q_Fa2Fhi0FI")
+  user_id: gabriel.id, sub_category_id: frontside_pop_shove_it.id, you_tube_key: "Q_Fa2Fhi0FI", good_style: 20, rating: 8, helpful: 22)
 interaction4 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_frontside_pop_shove_it.id, viewed: true)
 video_frontside_180_ollie = Video.create!(title: "fs 180 ollie",
-  user_id: gabriel.id, sub_category_id: frontside_180_ollie.id, you_tube_key: "_7omy5Vqi-0")
+  user_id: gabriel.id, sub_category_id: frontside_180_ollie.id, you_tube_key: "_7omy5Vqi-0", good_style: 29, rating: 11, helpful: 44)
 interaction5 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_frontside_180_ollie.id, viewed: true)
 video_threesixty_flip = Video.create!(title: "360 flip super slo-mo",
-  user_id: vinny.id, sub_category_id: frontside_180_ollie.id, you_tube_key: "h0ZCMsgjZgs")
+  user_id: vinny.id, sub_category_id: frontside_180_ollie.id, you_tube_key: "h0ZCMsgjZgs", good_style: 15, rating: 13, helpful: 52)
 # subcategory
 gazelle_flip = SubCategory.create!(name: "gazelle flip", difficulty: "pro")
 nollie_flip = SubCategory.create!(name: "nollie flip", difficulty: "pro")
@@ -92,25 +92,25 @@ blunt_fakie = SubCategory.create!(name: "blunt fakie", difficulty: "pro")
 frontside_blunt = SubCategory.create!(name: "frontside blunt", difficulty: "pro")
 # videos
 video_gazelle_flip = Video.create!(title: "quick gazelle flip",
-  user_id: sophie.id, sub_category_id: gazelle_flip.id, you_tube_key: "3S9FM0W0rm0")
+  user_id: sophie.id, sub_category_id: gazelle_flip.id, you_tube_key: "3S9FM0W0rm0", good_style: 37, rating: 3, helpful: 35)
 video_gazelle_flip2 = Video.create!(title: "720 gazelle flip",
-  user_id: sophie.id, sub_category_id: gazelle_flip.id, you_tube_key: "h-hKDXxvPxk")
+  user_id: sophie.id, sub_category_id: gazelle_flip.id, you_tube_key: "h-hKDXxvPxk", good_style: 44, rating: 10, helpful: 57)
 video_gazelle_flip3 = Video.create!(title: "fakie gazelle flip",
-  user_id: sophie.id, sub_category_id: gazelle_flip.id, you_tube_key: "uUQKKHStR3c")
+  user_id: sophie.id, sub_category_id: gazelle_flip.id, you_tube_key: "uUQKKHStR3c", good_style: 52, rating: 7, helpful: 77)
 nollie_flip_video = Video.create!(title: "nose manual nollie flip",
-  user_id: sophie.id, sub_category_id: nollie_flip.id, you_tube_key: "90mKo6iXTZQ")
+  user_id: sophie.id, sub_category_id: nollie_flip.id, you_tube_key: "90mKo6iXTZQ", good_style: 34, rating: 4, helpful: 44)
 fs_nosegrind_video = Video.create!(title: "fs nosegrind fast n slo",
-  user_id: sophie.id, sub_category_id: fs_nosegrind.id, you_tube_key: "Acx4qNTUIk8")
+  user_id: sophie.id, sub_category_id: fs_nosegrind.id, you_tube_key: "Acx4qNTUIk8", good_style: 46, rating: 6, helpful: 48)
 nollie_heel_flip_video = Video.create!(title: "nollie heelflip slomo",
-  user_id: sophie.id, sub_category_id: nollie_heel_flip.id, you_tube_key: "2UYQXkuHXEo")
+  user_id: sophie.id, sub_category_id: nollie_heel_flip.id, you_tube_key: "2UYQXkuHXEo", good_style: 29, rating: 5, helpful: 85)
 fs_smithgrind_video = Video.create!(title: "fs smithgrind loop",
-  user_id: sophie.id, sub_category_id: fs_smithgrind.id, you_tube_key: "QB3yccR6HGA")
+  user_id: sophie.id, sub_category_id: fs_smithgrind.id, you_tube_key: "QB3yccR6HGA", good_style: 50, rating: 8, helpful: 79)
 hard_flip_video = Video.create!(title: "fs smithgrind loop",
-  user_id: sophie.id, sub_category_id: hard_flip.id, you_tube_key: "5RegzKzq3is")
+  user_id: sophie.id, sub_category_id: hard_flip.id, you_tube_key: "5RegzKzq3is", good_style: 38, rating: 9, helpful: 35)
 frontside_ollie_video = Video.create!(title: "mini fs ollie",
-  user_id: sophie.id, sub_category_id: frontside_ollie.id, you_tube_key: "Xt3e7Rj2R2M")
+  user_id: sophie.id, sub_category_id: frontside_ollie.id, you_tube_key: "Xt3e7Rj2R2M", good_style: 40, rating: 12, helpful: 67)
 threesixty_shuvit_video = Video.create!(title: "360 pop shuvit repeat",
-  user_id: sophie.id, sub_category_id: threesixty_shuvit.id, you_tube_key: "TIc-OJoAwl8")
+  user_id: sophie.id, sub_category_id: threesixty_shuvit.id, you_tube_key: "TIc-OJoAwl8", good_style: 57, rating: 15, helpful: 42)
 puts "Seed complete."
 
 

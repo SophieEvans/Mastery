@@ -5,12 +5,10 @@
   background: #e83f43;
   transition: background 0.3s ease;
 }
-
 .btn-flat:hover {
   background: #b53337;
   color: white;
 }
-
 .btn-back {
   background-color: whitesmoke;
   color: #e83f43;
@@ -20,12 +18,10 @@
   margin: 4px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 .btn-back:hover {
   background: #dd4230;
   color: #white;
 }
-
 .btn-back-view {
   padding-left: -1px;
   width: 136px;
@@ -33,7 +29,6 @@
   margin: 0px;
   margin-top: 16px;
 }
-
 .btn-flat-green-view {
   display: flex;
   justify-content: center;
@@ -41,7 +36,6 @@
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 .btn-flat-green {
   color: white;
   padding: 8px 24px;
@@ -50,12 +44,10 @@
   transition: background 0.3s ease;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 .btn-flat-green:hover {
   background: #e83f43;
   color: white;
 }
-
 .btn-flat-login {
   color: white;
   padding: 8px 24px;
@@ -67,13 +59,10 @@
   margin-left: 4px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 .btn-flat-login:hover {
     background-color: gray;
     color: white;
-
 }
-
 .btn-flat-signup {
     color: white;
     padding: 8px 24px;
@@ -85,12 +74,10 @@
     margin-left: 4px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 .btn-flat-signup:hover {
     background-color: gray;
     color: white;
 }
-
 .btn-interaction {
   display: flex;
   justify-content: space-around;
@@ -98,76 +85,81 @@
   position: relative;
   flex-direction: column;
 }
-
 .btn-back-help {
   color: white;
-  padding: 11px 26px;
+  // CHANGED START
+  padding: 11px 37.2px;
+  // CHANGED END
   border-radius: 4px;
   background-color: #e83f43;
   transition: background 0.3s ease;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 4px 0px;
 }
-
 .btn-back-help:hover {
   // background: #b53337;
   color: white;
 }
-
 .btn-flat-help {
   background-color: whitesmoke;
   color: #e83f43;
-  padding: 11px 26px;
+  // CHANGED START
+  padding: 11px 37px;
+  // CHANGED END
   border-radius: 4px;
   transition: background 0.3s ease;
   margin: 4px 0px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 .btn-flat-help:hover {
   // background: #dd4230;
   color: #dd4230;
 }
-
 .btn-back-gs {
   color: white;
-  padding: 0px 11px;
+  // CHANGED START
+  padding: 0px 22.5px;
+  // CHANGED END
   border-radius: 4px;
   background-color: #e83f43;
   transition: background 0.3s ease;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 .btn-back-gs:hover {
   // background: #b53337;
   color: white;
 }
-
 .btn-flat-gs {
   background-color: whitesmoke;
   color: #e83f43;
-  padding: 0px 11px;
   border-radius: 4px;
   transition: background 0.3s ease;
-  margin: 4px;
+  // CHANGED START
+  padding: 0px 22.8px;
+  // margin: 4px 0;
+  // CHANGED END
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 .btn-flat-gs:hover {
   // background: #dd4230;
   color: #dd4230;
 }
-
-
 .btn-vote {
   background-color: whitesmoke;
   color: #e83f43;
-  padding: 8px 8px;
   border-radius: 4px;
   transition: background 0.3s ease;
-  margin: 4px;
+  // CHANGED START
+  padding: 3px 8px;
+  margin: 4px 4px 4px 0;
+  // margin: 4px;
+  // CHANGED END
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-size: 24px;
 }
-
-
+.fa-chevron-circle-down:before {
+  color: #e83f43;
+}
+.fa-chevron-circle-up:before {
+  color: #e83f43;
+}

@@ -34,6 +34,7 @@ class InteractionsController < ApplicationController
       end
     end
 
+    @video.rating = 0 if @video.rating.nil?
     if interaction_params[:upvote].present?
       if @interaction.vote.nil?
         @video.rating += 1

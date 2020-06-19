@@ -17,9 +17,7 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     @video.helpful = 0 if @video.helpful.nil?
     @video.good_style = 0 if @video.good_style.nil?
-    if current_user
-      @interaction = Interaction.find_or_initialize_by(user_id: current_user.id, video_id: @video.id)
-    end
+    @interaction = Interaction.find_or_initialize_by(user_id: current_user.id, video_id: @video.id) if current_user
   end
 
   def new

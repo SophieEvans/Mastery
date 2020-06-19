@@ -31,6 +31,16 @@ grid-gap: 32px;
     height: 240px;
   }
 
+// iphone 6/7/8 plus
+// @media (min-width: 375) and (max-width: 425) {
+
+//   .btn-flat .btn-flat-green-view {
+//     margin-bottom: -24px;
+//   }
+//   .btn-back .btn-back-view {
+//     margin-top: 16px;
+//   }
+// }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {

@@ -15,10 +15,11 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
-    authorize @video
     @video.helpful = 0 if @video.helpful.nil?
     @video.good_style = 0 if @video.good_style.nil?
-    @interaction = Interaction.find_or_initialize_by(user_id: current_user.id, video_id: @video.id)
+    if current_user
+      @interaction = Interaction.find_or_initialize_by(user_id: current_user.id, video_id: @video.id)
+    end
   end
 
   def new
@@ -64,14 +65,6 @@ class VideosController < ApplicationController
     @pro_completed_count = "#{completedProVideos.count}/#{@pro_videos.count}"
 
     @my_videos = Video.where(user_id: 1)
-
-  #   @interactions_rookie = @rookie_videos.each do |video|
-  #     interaction = Interaction.where(user_id: current_user.id, video_id: video.id)
-  #     if interaction.completed == true
-  #       @score = current_user.rookie_completed += 1
-  #     end
-  #   end
-
   end
 
   def search

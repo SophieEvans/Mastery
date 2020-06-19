@@ -20,7 +20,7 @@
       </div>
 
     <div class="cards">
-      <% if @interaction %>
+      <% if user_signed_in? && @interaction %>
         <% btn_helpful = @interaction.helpful ? "btn-primary" : "btn-flat" %>
         <% btn_good_style = @interaction.good_style ? "btn-primary" : "btn-back" %>
         <% btn_up_vote = @interaction.vote ? "btn-primary" : "icons" %>

@@ -23,7 +23,7 @@
 
 .btn-back:hover {
   background: #dd4230;
-  color: white;
+  color: #white;
 }
 
 .btn-back-view {
@@ -97,4 +97,101 @@
   align-items: center;
   position: relative;
   flex-direction: column;
+}
+
+.btn-back-help {
+  color: white;
+  padding: 11px 26px;
+  border-radius: 4px;
+  background-color: #e83f43;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-back-help:hover {
+  // background: #b53337;
+  color: white;
+}
+
+.btn-flat-help {
+  background-color: whitesmoke;
+  color: #e83f43;
+  padding: 11px 26px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  margin: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-flat-help:hover {
+  // background: #dd4230;
+  color: #dd4230;
+}
+
+.btn-back-gs {
+  color: white;
+  padding: 0px 11px;
+  border-radius: 4px;
+  background-color: #e83f43;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-back-gs:hover {
+  // background: #b53337;
+  color: white;
+}
+
+.btn-flat-gs {
+  background-color: whitesmoke;
+  color: #e83f43;
+  padding: 0px 11px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  margin: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-flat-gs:hover {
+  // background: #dd4230;
+  color: #dd4230;
+}
+
+
+.btn-flat-downvote {
+  background-color: whitesmoke;
+  color: #e83f43;
+  padding: 0px 11px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  margin: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-flat-upvote-pressed {
+  color: white;
+  padding: 0px 11px;
+  border-radius: 4px;
+  background-color: #e83f43;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-flat-upvote {
+  background-color: whitesmoke;
+  color: #e83f43;
+  padding: 0px 11px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  margin: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-flat-downvote-pressed {
+  color: white;
+  padding: 0px 11px;
+  border-radius: 4px;
+  background-color: #e83f43;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

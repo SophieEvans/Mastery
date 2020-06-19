@@ -20,3 +20,31 @@
   display: block;
   text-align: center;
 }
+
+.interaction-card {
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+    p {
+      margin: 0;
+    }
+}
+
+.font-awesome-div {
+  display: flex;
+}
+
+#vote-count {
+  font-size: 19px;
+  margin: 0 8px;
+}
+
+#good-style-count {
+  font-size: 19px;
+  margin: 0 8px;
+}
+
+#helpful-count {
+  font-size: 19px;
+  margin: 0 8px;
+}

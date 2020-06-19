@@ -18,7 +18,7 @@ if (helpfulButton !== null) {
 
 var helpfulCount =  document.getElementById("helpful-count")
 if (helpfulCount !== null) {
-    helpfulCount.innerHTML = "<%= @video.helpful.to_s + " people found this helpful" %>"
+    helpfulCount.innerHTML = "<%= @video.helpful.to_s + " this was helpful" %>"
 }
 
 // JS actions for good style button and good style count
@@ -42,7 +42,7 @@ if (styleButton !== null) {
 
 var goodStyleCount =  document.getElementById("good-style-count")
 if (goodStyleCount !== null) {
-    goodStyleCount.innerHTML = "<%= @video.good_style.to_s + " likes" %>"
+    goodStyleCount.innerHTML = "<%= @video.good_style.to_s + " credit for good style" %>"
 }
 
 // JS actions for like and dislike (up and down votes) buttons and count
@@ -52,42 +52,42 @@ var dislikeButton = document.getElementById("downvote")
 if (likeButton !== null && dislikeButton !== null) {
   <% case @interaction.vote %>
   <% when true %>
-    if (!likeButton.classList.contains("btn-flat-upvote")) {
-      likeButton.classList.add("btn-flat-upvote");
-      likeButton.classList.remove("btn-flat-upvote-pressed")
+    if (!likeButton.classList.contains("btn-vote")) {
+      likeButton.classList.add("btn-vote")
+      // likeButton.classList.remove("btn-vote")
     }
 
-    if (!dislikeButton.classList.contains("btn-flat-downvote")) {
-        dislikeButton.classList.add("btn-flat-downvote");
-        dislikeButton.classList.remove("btn-flat-downvote-pressed")
+    if (!dislikeButton.classList.contains("btn-vote")) {
+        dislikeButton.classList.add("btn-vote")
+        // dislikeButton.classList.remove("btn-vote")
     }
 
   <% when false %>
-    if (!dislikeButton.classList.contains("btn-primary")) {
-        dislikeButton.classList.add("btn-primary")
+    if (!dislikeButton.classList.contains("btn-vote")) {
+        dislikeButton.classList.add("btn-vote")
     }
-    dislikeButton.classList.remove("icons")
+    // dislikeButton.classList.remove("btn-vote")
 
-    if (!likeButton.classList.contains("icons")) {
-        likeButton.classList.add("icons")
+    if (!likeButton.classList.contains("btn-vote")) {
+        likeButton.classList.add("btn-vote")
     }
-    likeButton.classList.remove("btn-primary")
+    // likeButton.classList.remove("btn-vote")
   <% when nil %>
-    if (!likeButton.classList.contains("icons")) {
-        likeButton.classList.add("icons")
+    if (!likeButton.classList.contains("btn-vote")) {
+        likeButton.classList.add("btn-vote")
     }
-    likeButton.classList.remove("btn-primary")
+    // likeButton.classList.remove("btn-vote")
 
-    if (!dislikeButton.classList.contains("icons")) {
-        dislikeButton.classList.add("icons")
+    if (!dislikeButton.classList.contains("btn-vote")) {
+        dislikeButton.classList.add("btn-vote")
     }
-    dislikeButton.classList.remove("btn-primary")
+    // dislikeButton.classList.remove("btn-vote")
   <% end %>
 }
 
 var voteCount =  document.getElementById("vote-count")
 if (voteCount !== null) {
-    voteCount.innerHTML = "<%= @video.rating.to_s + " votes" %>"
+    voteCount.innerHTML = "<%= @video.rating.to_s + " verified as mastered" %>"
 }
 
 // JS actions for mastered/rewind buttons

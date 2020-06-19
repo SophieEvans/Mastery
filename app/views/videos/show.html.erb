@@ -18,43 +18,50 @@
         <% end %>
         <span><h5 id="video-level"><%= @video.sub_category.difficulty %> trick</h5></span>
       </div>
-
+    </div>
     <% if user_signed_in? %>
-    <div class="cards">
+
+    <div class="interaction-cards">
+
       <% if @interaction %>
         <% btn_helpful = @interaction.helpful ? "btn-back-help" : "btn-flat-help" %>
         <% btn_good_style = @interaction.good_style ? "btn-back-gs" : "btn-flat-gs" %>
-        <% btn_upvote = @interaction.vote ? "btn-flat-upvote" : "btn-flat-upvote-pressed" %>
-        <% btn_downvote = @interaction.vote ? "btn-flat-downvote" : "btn-flat-downvote-pressed" %>
+        <% btn_upvote = @interaction.vote ? "btn-vote" : "btn-vote" %>
+        <% btn_downvote = @interaction.vote ? "btn-vote" : "btn-vote" %>
        <!--  <%# btn_down_vote = @interaction.vote ? "icons" : (@interaction.vote==nil ? "icons" : "btn-primary") %> -->
       <% end %>
 
-      <div class="flex-column btn-interaction">
-        <%= link_to video_interactions_path(@video, interaction: { helpful: true }), method: :post, remote: true, class: "#{btn_helpful}", id: "btn-helpful" do %>
-          <i class="fas fa-bolt"></i>
-        <% end %>
-        <p id="helpful-count"><%= @video.helpful.to_s + " people found this helpful"%></p>
-      </div>
-
-      <div class="flex-column btn-interaction">
-        <%= link_to video_interactions_path(@video, interaction: { good_style: true }), method: :post, remote: true, class: "#{btn_good_style}", id: "style" do %>
-          <strong>good <br> style</strong>
-        <% end %>
-        <p id="good-style-count"><%= @video.good_style.to_s + " likes" %></p>
-      </div>
-
-      <div class="flex-column btn-interaction">
-        <div class="flex-row">
-          <%= link_to video_interactions_path(@video, interaction: { upvote: true }), method: :post, remote: true, class: "#{btn_upvote}", id: "upvote" do %>
-            <i class="fa fa-plus-square"></i>
-          <% end %>
-          <%= link_to video_interactions_path(@video, interaction: { vote: true }), method: :post, remote: true, class: "#{btn_downvote}", id: "downvote" do %>
-            <i class="fa fa-minus-square"></i>
+      <div class="interaction-card">
+        <div class="font-awesome-div">
+          <%= link_to video_interactions_path(@video, interaction: { helpful: true }), method: :post, remote: true, class: "#{btn_helpful}", id: "btn-helpful" do %>
+            <i class="fas fa-bolt"></i>
           <% end %>
         </div>
-        <p id="vote-count"><%= @video.rating.to_s + " votes"%></p>
+          <p id="helpful-count"><%= @video.helpful.to_s + " this was helpful"%></p>
+      </div>
+
+      <div class="interaction-card">
+        <div class="font-awesome-div">
+          <%= link_to video_interactions_path(@video, interaction: { good_style: true }), method: :post, remote: true, class: "#{btn_good_style}", id: "style" do %>
+            <strong>good <br> style</strong>
+          <% end %>
+        </div>
+          <p id="good-style-count"><%= @video.good_style.to_s + " credit for good style" %></p>
+      </div>
+
+      <div class="interaction-card">
+        <div class="font-awesome-div">
+          <%= link_to video_interactions_path(@video, interaction: { upvote: true }), method: :post, remote: true, class: "btn-vote", id: "upvote" do %>
+            <i class="fa fa-chevron-circle-up"></i>
+          <% end %>
+          <%= link_to video_interactions_path(@video, interaction: { vote: true }), method: :post, remote: true, class: "btn-vote", id: "downvote" do %>
+            <i class="fa fa-chevron-circle-down"></i>
+          <% end %>
+        </div>
+          <p id="vote-count"><%= @video.rating.to_s + " verified as mastered"%></p>
       </div>
     </div>
+
   <% else %>
     Login to vote, rate and verify this video's mastery!
     <div>
@@ -62,6 +69,5 @@
     <%= link_to "Signup", new_user_registration_path, class: "btn btn-flat" %>
     </div>
   <% end %>
-  </div>
 </div>
 

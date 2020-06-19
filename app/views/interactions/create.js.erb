@@ -4,16 +4,16 @@
 var helpfulButton = document.getElementById("btn-helpful")
 if (helpfulButton !== null) {
   <% if @interaction.helpful %>
-    if (!helpfulButton.classList.contains("btn-primary")) {
-        helpfulButton.classList.add("btn-primary")
+    if (!helpfulButton.classList.contains("btn-back-help")) {
+        helpfulButton.classList.add("btn-back-help");
+        helpfulButton.classList.remove("btn-flat-help")
     }
-    helpfulButton.classList.remove("btn-flat")   
-  <% else %>
-    if (!helpfulButton.classList.contains("btn-flat")) {
-        helpfulButton.classList.add("btn-flat")
+    <% else %>
+    if (!helpfulButton.classList.contains("btn-flat-help")) {
+        helpfulButton.classList.add("btn-flat-help");
+        helpfulButton.classList.remove("btn-back-help")
     }
-    helpfulButton.classList.remove("btn-primary") 
-  <% end %>
+    <% end %>
 }
 
 var helpfulCount =  document.getElementById("helpful-count")
@@ -26,15 +26,17 @@ if (helpfulCount !== null) {
 var styleButton = document.getElementById("style")
 if (styleButton !== null) {
   <% if @interaction.good_style %>
-    if (!styleButton.classList.contains("btn-primary")) {
-        styleButton.classList.add("btn-primary")
+    if (!styleButton.classList.contains("btn-back-gs")) {
+        styleButton.classList.add("btn-back-gs");
+        styleButton.classList.remove("btn-flat-gs")
     }
-    styleButton.classList.remove("btn-back")   
+
   <% else %>
-    if (!styleButton.classList.contains("btn-back")) {
-        styleButton.classList.add("btn-back")
+    if (!styleButton.classList.contains("btn-flat-gs")) {
+        styleButton.classList.add("btn-flat-gs");
+        styleButton.classList.remove("btn-back-gs")
     }
-    styleButton.classList.remove("btn-primary") 
+
   <% end %>
 }
 
@@ -50,15 +52,16 @@ var dislikeButton = document.getElementById("downvote")
 if (likeButton !== null && dislikeButton !== null) {
   <% case @interaction.vote %>
   <% when true %>
-    if (!likeButton.classList.contains("btn-primary")) {
-        likeButton.classList.add("btn-primary")
+    if (!likeButton.classList.contains("btn-flat-upvote")) {
+      likeButton.classList.add("btn-flat-upvote");
+      likeButton.classList.remove("btn-flat-upvote-pressed")
     }
-    likeButton.classList.remove("icons")
 
-    if (!dislikeButton.classList.contains("icons")) {
-        dislikeButton.classList.add("icons")
+    if (!dislikeButton.classList.contains("btn-flat-downvote")) {
+        dislikeButton.classList.add("btn-flat-downvote");
+        dislikeButton.classList.remove("btn-flat-downvote-pressed")
     }
-    dislikeButton.classList.remove("btn-primary")   
+
   <% when false %>
     if (!dislikeButton.classList.contains("btn-primary")) {
         dislikeButton.classList.add("btn-primary")

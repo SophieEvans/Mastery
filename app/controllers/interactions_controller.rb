@@ -4,6 +4,7 @@ class InteractionsController < ApplicationController
     @video = Video.find(params[:video_id])
     @video.helpful = 0 if @video.helpful.nil?
     @video.good_style = 0 if @video.good_style.nil?
+    @video.rating = 0 if @video.rating.nil?
     # check whether interaction exists (use activerecord find_by method)
     @interaction = Interaction.find_or_initialize_by(user_id: current_user.id, video_id: @video.id)
     authorize @interaction
@@ -22,28 +23,25 @@ class InteractionsController < ApplicationController
       @interaction.good_style = !@interaction.good_style
     end
 
-    if interaction_params[:upvote].present?
-      
-      if @interaction.vote
-        @video.rating -= 1
-      elsif @interaction.vote.nil?
-        @video.rating += 1
-      else
-        @video.rating += 2
-      end
-      @interaction.vote = @interaction.vote ? nil : true
-    end
 
-    if interaction_params[:vote].present?
-      if @interaction.vote
-        @video.rating -= 2
-      elsif @interaction.vote.nil?
-        @video.rating -= 1
-      else
-        @video.rating += 1
-      end
-      @interaction.vote = @interaction.vote ? false : (@interaction.vote==nil ? false : nil)
-    end
+    if interaction_params[:upvote].present?
+  if @interaction.vote.nil?
+    @video.rating += 1
+    @interaction.vote = true
+  elsif @interaction.vote == false # They had already voted against this video now changed their mind, so we are just removing their vote.
+    @video.rating += 1
+    @interaction.vote = nil
+  end
+end
+if interaction_params[:vote].present?
+  if @interaction.vote.nil?
+    @video.rating -= 1
+    @interaction.vote = false
+  elsif @interaction.vote == true # They had already voted for this video now changed their mind, so we are just removing their negative vote.
+    @video.rating -= 1
+    @interaction.vote = nil
+  end
+end
 
     @interaction.save
     @video.save

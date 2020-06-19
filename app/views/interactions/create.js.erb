@@ -89,8 +89,8 @@ if (voteCount !== null) {
 
 // JS actions for mastered/rewind buttons
 
-var masteredButton = document.getElementById("btn-mastered")
-var masteredStamp = document.getElementById("mastered-stamp")
+var masteredButton = document.getElementById("btn-mastered-<%= @video.id %>")
+var masteredStamp = document.getElementById("mastered-stamp-<%= @video.id %>")
 if (masteredButton !== null && masteredStamp !== null) {
   <% if @interaction.completed? %>
     if (!masteredButton.classList.contains("btn-flat")) {
@@ -107,6 +107,20 @@ if (masteredButton !== null && masteredStamp !== null) {
   <% end %>
   masteredStamp.classList.toggle("hidden")
 }
+
+var rookieProgress = document.getElementById(id="rookie-level")
+var intermediateProgress = document.getElementById(id="intermediate-level")
+var proProgress = document.getElementById(id="pro-level")
+if (rookieProgress !== null ) {
+    rookieProgress.innerText = "rookie level <%= "#{@rookie_completed_count}/#{@rookie_count}" %>"
+}
+if (intermediateProgress !== null ) {
+    intermediateProgress.innerText = "intermediate level <%= "#{@intermediate_completed_count}/#{@intermediate_count}" %>"
+}
+if (proProgress !== null ) {
+    proProgress.innerText = "pro level <%= "#{@pro_completed_count}/#{@pro_count}" %>"
+}
+
 
 
 

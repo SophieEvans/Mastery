@@ -64,16 +64,13 @@ class InteractionsController < ApplicationController
       completedInterVideos = Video.joins(:interactions,:sub_category).where("sub_categories.difficulty = 'intermediate' and interactions.user_id = #{current_user.id} and completed = true").uniq {|v| v.sub_category.name}
       completedProVideos = Video.joins(:interactions, :sub_category).where("sub_categories.difficulty = 'pro' and interactions.user_id = #{current_user.id} and completed = true").uniq {|v| v.sub_category.name}
       
-      @rookie_completed_count = "#{completedRookieVideos.count}/#{@rookie_videos.count}"
-      @intermediate_completed_count = "#{completedInterVideos.count}/#{@intermediate_videos.count}"
-      @pro_completed_count = "#{completedProVideos.count}/#{@pro_videos.count}"
       @rookie_count = rookie_videos.count
       @intermediate_count = intermediate_videos.count
       @pro_count = pro_videos.count
       
-      # @rookie_completed_count = completedRookieVideos.count
-      # @intermediate_completed_count = completedInterVideos.count
-      # @pro_completed_count = completedProVideos.count
+      @rookie_completed_count = completedRookieVideos.count
+      @intermediate_completed_count = completedInterVideos.count
+      @pro_completed_count = completedProVideos.count
     end
 
     respond_to do |format|

@@ -8,15 +8,11 @@ class InteractionsController < ApplicationController
     # check whether interaction exists (use activerecord find_by method)
     @interaction = Interaction.find_or_initialize_by(user_id: current_user.id, video_id: @video.id)
     authorize @interaction
-    # if exists we update
-    #unless @interaction.persisted?
-      #@interaction = Interaction.new(interaction_params)
-      #@interaction.video = @video
-      #@interaction.user = current_user
-    #end
 
-    @interaction.completed = !@interaction.completed if interaction_params[:completed].present?
-
+    if interaction_params[:completed].present?
+      @interaction.completed = !@interaction.completed
+    end
+    
     if interaction_params[:helpful].present?
       @video.helpful += @interaction.helpful ? -1 : 1
       @interaction.helpful = !@interaction.helpful
@@ -55,6 +51,26 @@ end
       # redirect_to "#{root_url}/videos/dashboard" and return
     # else
       # redirect user to show
+
+    # progress_count
+    if interaction_params[:completed].present?
+      rookie_videos = Video.joins(:sub_category).where(sub_categories: {difficulty: "rookie"}).uniq {|v| v.sub_category.name}
+      intermediate_videos = Video.joins(:sub_category).where(sub_categories: {difficulty: "intermediate"}).uniq {|v| v.sub_category.name}
+      pro_videos = Video.joins(:sub_category).where(sub_categories: {difficulty: "pro"}).uniq {|v| v.sub_category.name}
+      
+      completedRookieVideos = Video.joins(:interactions,:sub_category).where("sub_categories.difficulty = 'rookie' and interactions.user_id = #{current_user.id} and completed = true").uniq {|v| v.sub_category.name}
+      completedInterVideos = Video.joins(:interactions,:sub_category).where("sub_categories.difficulty = 'intermediate' and interactions.user_id = #{current_user.id} and completed = true").uniq {|v| v.sub_category.name}
+      completedProVideos = Video.joins(:interactions, :sub_category).where("sub_categories.difficulty = 'pro' and interactions.user_id = #{current_user.id} and completed = true").uniq {|v| v.sub_category.name}
+      
+      @rookie_count = rookie_videos.count
+      @intermediate_count = intermediate_videos.count
+      @pro_count = pro_videos.count
+      
+      @rookie_completed_count = completedRookieVideos.count
+      @intermediate_completed_count = completedInterVideos.count
+      @pro_completed_count = completedProVideos.count
+    end
+
     respond_to do |format|
       format.html { redirect_to @video }
       format.js

@@ -9,7 +9,7 @@ class VideosController < ApplicationController
       sub_category = SubCategory.find_by_name(sub_category_name)
       @videos = sub_category.videos
     else
-      @videos = policy_scope(Video)
+      @videos = policy_scope(Video.includes(:sub_category))
     end
   end
 
@@ -62,8 +62,6 @@ class VideosController < ApplicationController
     @intermediate_completed_count = "#{completedInterVideos.count}/#{@intermediate_videos.count}"
     completedProVideos = Video.joins(:interactions, :sub_category).where("sub_categories.difficulty = 'pro' and interactions.user_id = #{current_user.id} and completed = true").uniq {|v| v.sub_category.name}
     @pro_completed_count = "#{completedProVideos.count}/#{@pro_videos.count}"
-
-    @my_videos = Video.where(user_id: 1)
 
   #   @interactions_rookie = @rookie_videos.each do |video|
   #     interaction = Interaction.where(user_id: current_user.id, video_id: video.id)

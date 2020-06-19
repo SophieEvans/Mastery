@@ -15,7 +15,7 @@ class InteractionsController < ApplicationController
     end
 
     @interaction.completed = interaction_params[:completed] if interaction_params[:completed].present?
-    
+
     if interaction_params[:helpful].present?
       @interaction.helpful = !@interaction.helpful
       if @interaction.helpful
@@ -35,25 +35,22 @@ class InteractionsController < ApplicationController
     end
 
     if interaction_params[:upvote].present?
-      if @interaction.vote
-        @video.rating -= 1
-      elsif @interaction.vote.nil?
+      if @interaction.vote.nil?
         @video.rating += 1
-      else
-        @video.rating += 2
+        @interaction.vote = true
+      elsif @interaction.vote == false # They had already voted against this video now changed their mind, so we are just removing their vote.
+        @video.rating += 1
+        @interaction.vote = nil
       end
-      @interaction.vote = @interaction.vote ? nil : true
     end
-
     if interaction_params[:vote].present?
-      if @interaction.vote
-        @video.rating -= 2
-      elsif @interaction.vote.nil?
+      if @interaction.vote.nil?
         @video.rating -= 1
-      else
-        @video.rating += 1
+        @interaction.vote = false
+      elsif @interaction.vote == true # They had already voted for this video now changed their mind, so we are just removing their negative vote.
+        @video.rating -= 1
+        @interaction.vote = nil
       end
-      @interaction.vote = @interaction.vote ? false : (@interaction.vote==nil ? false : nil)
     end
 
     @interaction.save

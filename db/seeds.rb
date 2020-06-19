@@ -32,6 +32,27 @@ kickflip = SubCategory.create!(name: "kickflip", difficulty: "rookie")
 casperflip = SubCategory.create!(name: "casper flip", difficulty: "rookie")
 frontside_ollie = SubCategory.create!(name: "frontside ollie", difficulty: "rookie")
 drop_in = SubCategory.create!(name: "drop in", difficulty: "rookie")
+varial_kickflip = SubCategory.create!(name: "varial kickflip", difficulty: "intermediate")
+frontside_pop_shove_it = SubCategory.create!(name: "frontside pop shuvit", difficulty: "intermediate")
+frontside_180_ollie = SubCategory.create!(name: "frontside 180 ollie", difficulty: "intermediate")
+fifty_fifty_grind = SubCategory.create!(name: "50-50 grind", difficulty: "intermediate")
+frontside_disaster = SubCategory.create!(name: "frontside disaster", difficulty: "intermediate")
+board_slide = SubCategory.create!(name: "board slide", difficulty: "intermediate")
+frontside_tailslide = SubCategory.create!(name: "frontside tailslide", difficulty: "intermediate")
+threesixty_flip = SubCategory.create!(name: "360 flip", difficulty: "intermediate")
+gazelle_flip = SubCategory.create!(name: "gazelle flip", difficulty: "intermediate")
+nollie_flip = SubCategory.create!(name: "nollie flip", difficulty: "pro")
+fs_nosegrind = SubCategory.create!(name: "fs nosegrind", difficulty: "pro")
+nollie_heel_flip = SubCategory.create!(name: "nollie heelflip", difficulty: "pro")
+fs_smithgrind = SubCategory.create!(name: "fs smith grind", difficulty: "pro")
+hard_flip = SubCategory.create!(name: "hard flip", difficulty: "pro")
+frontside_ollie = SubCategory.create!(name: "frontside ollie", difficulty: "pro")
+threesixty_shuvit = SubCategory.create!(name: "360 shuvit", difficulty: "pro")
+backside_tailslide = SubCategory.create!(name: "backside tailslide", difficulty: "pro")
+crooked_grind = SubCategory.create!(name: "crooked grind", difficulty: "pro")
+blunt_fakie = SubCategory.create!(name: "blunt fakie", difficulty: "pro")
+frontside_blunt = SubCategory.create!(name: "frontside blunt", difficulty: "pro")
+
 # videos and interactions
 video_ollie = Video.create!(title: "ollie slo-mo",
   user_id: gabriel.id, sub_category_id: ollie.id, you_tube_key: "QjuuRA-b94I")
@@ -63,25 +84,52 @@ video_frontside180 = Video.create!(title: "frontside 180 slo-mo",
 interaction2b = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_frontside180.id, viewed: true)
 
-# subcategory
-varial_kickflip = SubCategory.create!(name: "varial kickflip", difficulty: "intermediate")
-frontside_pop_shove_it = SubCategory.create!(name: "frontside pop shuvit", difficulty: "intermediate")
-frontside_180_ollie = SubCategory.create!(name: "frontside 180 ollie", difficulty: "intermediate")
-fifty_fifty_grind = SubCategory.create!(name: "50-50 grind", difficulty: "intermediate")
-frontside_disaster = SubCategory.create!(name: "frontside disaster", difficulty: "intermediate")
-board_slide = SubCategory.create!(name: "board slide", difficulty: "intermediate")
-frontside_tailslide = SubCategory.create!(name: "frontside tailslide", difficulty: "intermediate")
-threesixty_flip = SubCategory.create!(name: "360 flip", difficulty: "intermediate")
+# subcategory Intermediary
+video_gazelle_flip = Video.create!(title: "quick gazelle flip",
+  user_id: sophie.id, sub_category_id: gazelle_flip.id, you_tube_key: "0Yvzt1QGWPU")
+video_frontside_pop_shove_it = Video.create!(title: "frontside pop shove it",
+  user_id: sophie.id, sub_category_id: frontside_pop_shove_it.id, you_tube_key: "9W4a6W9JSoc")
+video_frontside_180_ollie = Video.create!(title: "frontside 180 ollie",
+  user_id: sophie.id, sub_category_id: frontside_180_ollie.id, you_tube_key: "CJqXUfM67mU")
+video_fifty_fifty_grind = Video.create!(title: "50-50 grind",
+  user_id: sophie.id, sub_category_id: fifty_fifty_grind.id, you_tube_key: "N7JeItiIEjw")
+video_board_slide = Video.create!(title: "board slide",
+  user_id: sophie.id, sub_category_id: board_slide.id, you_tube_key: "cnNaQ_KTFyw")
+video_frontside_tailslide = Video.create!(title: "frontside tailslide",
+  user_id: sophie.id, sub_category_id: frontside_tailslide.id, you_tube_key: "zL3NOPQNFds")
+video_threesixty_flip = Video.create!(title: "360 flip",
+  user_id: sophie.id, sub_category_id: threesixty_flip.id, you_tube_key: "scngm_LbClI")
+
+# subcategory Pro
+video_nollie_flip = Video.create!(title: "nollie flip",
+user_id: sophie.id, sub_category_id: nollie_flip.id, you_tube_key: "cds60Kn8PaA")
+video_fs_nosegrind = Video.create!(title: "fs nosegrind",
+  user_id: sophie.id, sub_category_id: fs_nosegrind.id, you_tube_key: "Acx4qNTUIk8")
+video_nollie_heel_flip = Video.create!(title: "nollie heel flip",
+  user_id: sophie.id, sub_category_id: nollie_heel_flip.id, you_tube_key: "Xi2_WsLbmUU")
+video_fs_smithgrind = Video.create!(title: "fs smithgrind",
+  user_id: sophie.id, sub_category_id: fs_smithgrind.id, you_tube_key: "eX-sltdVQbU")
+video_hard_flip = Video.create!(title: "hard flip",
+  user_id: sophie.id, sub_category_id: hard_flip.id, you_tube_key: "5RegzKzq3is")
+video_frontside_ollie = Video.create!(title: "frontside ollie",
+  user_id: sophie.id, sub_category_id: frontside_ollie.id, you_tube_key: "Xt3e7Rj2R2M")
+video_threesixty_shuvit = Video.create!(title: "360 shuv it",
+  user_id: sophie.id, sub_category_id: threesixty_shuvit.id, you_tube_key: "8HjICyiu6n0")
+video_tailslide = Video.create!(title: "backside tailslide",
+  user_id: sophie.id, sub_category_id: backside_tailslide.id, you_tube_key: "XY5IpMcZ1_s")
+video_crooked_grind = Video.create!(title: "crooked grind",
+  user_id: sophie.id, sub_category_id: crooked_grind.id, you_tube_key: "NvKWnD2aFvE")
+video_blunt_fakie = Video.create!(title: "blunt fakie",
+  user_id: sophie.id, sub_category_id: blunt_fakie.id, you_tube_key: "bE7Fii3PLbc")
+video_blunt = Video.create!(title: "frontside blunt",
+  user_id: sophie.id, sub_category_id: frontside_blunt.id, you_tube_key: "6FUSqf1_gno")
+
 # videos and interactions
 video_varial_kickflip = Video.create!(title: "clean varial kickflip",
   user_id: vinny.id, sub_category_id: varial_kickflip.id, you_tube_key: "ocFOCVHE0Ho")
 interaction3 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
   video_id: video_varial_kickflip.id, viewed: true)
 
-video_frontside_pop_shove_it = Video.create!(title: "fs pop shuvit",
-  user_id: gabriel.id, sub_category_id: frontside_pop_shove_it.id, you_tube_key: "Q_Fa2Fhi0FI")
-interaction4 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
-  video_id: video_frontside_pop_shove_it.id, viewed: true)
 
 video_frontside_180_ollie = Video.create!(title: "fs 180 ollie",
   user_id: gabriel.id, sub_category_id: frontside_180_ollie.id, you_tube_key: "_7omy5Vqi-0")
@@ -90,20 +138,6 @@ interaction5 = Interaction.create!(viewed_on: DateTime.now, user_id: sophie.id,
 
 video_threesixty_flip = Video.create!(title: "360 flip super slo-mo",
   user_id: vinny.id, sub_category_id: frontside_180_ollie.id, you_tube_key: "h0ZCMsgjZgs")
-
-# subcategory
-gazelle_flip = SubCategory.create!(name: "gazelle flip", difficulty: "pro")
-nollie_flip = SubCategory.create!(name: "nollie flip", difficulty: "pro")
-fs_nosegrind = SubCategory.create!(name: "fs nosegrind", difficulty: "pro")
-nollie_heel_flip = SubCategory.create!(name: "nollie heelflip", difficulty: "pro")
-fs_smithgrind = SubCategory.create!(name: "fs smith grind", difficulty: "pro")
-hard_flip = SubCategory.create!(name: "hard flip", difficulty: "pro")
-frontside_ollie = SubCategory.create!(name: "frontside ollie", difficulty: "pro")
-threesixty_shuvit = SubCategory.create!(name: "360 shuvit", difficulty: "pro")
-backside_tailslide = SubCategory.create!(name: "backside tailslide", difficulty: "pro")
-crooked_grind = SubCategory.create!(name: "crooked grind", difficulty: "pro")
-blunt_fakie = SubCategory.create!(name: "blunt fakie", difficulty: "pro")
-frontside_blunt = SubCategory.create!(name: "frontside blunt", difficulty: "pro")
 
 # videos
 video_gazelle_flip = Video.create!(title: "quick gazelle flip",

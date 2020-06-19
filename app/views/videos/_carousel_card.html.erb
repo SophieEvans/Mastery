@@ -1,22 +1,26 @@
 <div class="card-video">
   <% interaction = video.interactions.find {|i| i.user_id == current_user.id} %>
   <% if interaction && interaction.completed? %>
-    <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
-    <%= image_tag "stamp.png", alt: "stamp", class: "stamp" %>
+    <% stamp_display = "stamp"%>
   <% else %>
-    <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
+    <% stamp_display = "stamp hidden"%>
   <% end %>
+    <img src="https://img.youtube.com/vi/<%= video.you_tube_key %>/hqdefault.jpg">
+    <%= image_tag "stamp.png", alt: "stamp", class: stamp_display, id: "mastered-stamp" %>
   <div class="card-video-infos">
     <div>
       <h2><%= video.sub_category.name %></h2>
     </div>
     <div>
       <% interaction = Interaction.find_by(user_id: current_user.id, video_id: video.id) %>
-       <% if interaction && interaction.completed? %>
-        <%= link_to "rewind", video_interactions_path(video, interaction: {completed: false}), method: "POST", class: "btn btn-flat btn-flat-green-view" %>
+      <% if interaction && interaction.completed? %>
+        <% btn_mastered = "btn btn-flat btn-flat-green-view" %>
+        <% message = "rewind" %>
       <% else  %>
-        <%= link_to "mastered it", video_interactions_path(video, interaction: {completed: true}), method: "POST", class: "btn btn-flat-green btn-flat-green-view" %>
+        <% btn_mastered = "btn btn-flat-green btn-flat-green-view" %>
+        <% message = "mastered it" %>
       <% end %>
+        <%= link_to message, video_interactions_path(video, interaction: {completed: true}), method: :post, remote: true, class: btn_mastered, id: "btn-mastered" %>
       <%= link_to 'view video', video_path(video), class: "btn btn-back btn-back-view" %>
     </div>
   </div>

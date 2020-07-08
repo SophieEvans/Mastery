@@ -1,3 +1,12 @@
+<% def condition_check %>
+  <% if @interaction.vote.nil? %>
+  <% false %>
+    <% else %>
+    <% true %>
+  <% end %>
+<% end %>
+
+
 <div class="main_container">
   <div class="heading-container" id="heading-show">
     <h2><strong><%= @video.title %></strong></h2>
@@ -28,7 +37,6 @@
         <% btn_good_style = @interaction.good_style ? "btn-back-gs" : "btn-flat-gs" %>
         <% btn_upvote = @interaction.vote ? "btn-vote" : "btn-vote" %>
         <% btn_downvote = @interaction.vote ? "btn-vote" : "btn-vote" %>
-       <!--  <%# btn_down_vote = @interaction.vote ? "icons" : (@interaction.vote==nil ? "icons" : "btn-primary") %> -->
       <% end %>
 
       <div class="interaction-card">
@@ -37,7 +45,7 @@
             <i class="fas fa-bolt"></i>
           <% end %>
         </div>
-          <p id="helpful-count"><%= @video.helpful.to_s + " this was helpful"%></p>
+          <p id="helpful-count"><%= "this was helpful " + @video.helpful.to_s %></p>
       </div>
 
       <div class="interaction-card">
@@ -46,19 +54,19 @@
             <strong>good <br> style</strong>
           <% end %>
         </div>
-          <p id="good-style-count"><%= @video.good_style.to_s + " credit for good style" %></p>
+          <p id="good-style-count"><%= "credit for good style " + @video.good_style.to_s %></p>
       </div>
 
       <div class="interaction-card">
         <div class="font-awesome-div">
-          <%= link_to video_interactions_path(@video, interaction: { upvote: true }), method: :post, remote: true, class: "btn-vote", id: "upvote" do %>
+          <%= link_to video_interactions_path(@video, interaction: { upvote: true }), method: :post, remote: true, class: "btn btn-vote", disabled: condition_check, id: "upvote" do %>
             <i class="fa fa-chevron-circle-up"></i>
           <% end %>
           <%= link_to video_interactions_path(@video, interaction: { vote: true }), method: :post, remote: true, class: "btn-vote", id: "downvote" do %>
             <i class="fa fa-chevron-circle-down"></i>
           <% end %>
         </div>
-          <p id="vote-count"><%= @video.rating.to_s + " verified as mastered"%></p>
+          <p id="vote-count"><%= "verified as mastered " + @video.rating.to_s %></p>
       </div>
     </div>
 
@@ -70,4 +78,3 @@
     </div>
   <% end %>
 </div>
-

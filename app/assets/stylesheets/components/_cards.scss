@@ -1,17 +1,23 @@
 .cards-show {
 display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr 1fr 1fr;
 grid-gap: 32px;
+#ytplayer1 {
+    width: 100%;
+    height: 240px;
+    border: 4px solid white;
+  }
 }
 
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
+  margin-top: 16px;
 }
 
 // Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
+@media (min-width: 100px) and (max-width: 414px) {
   .cards {
     grid-template-columns: 1fr;
   }
@@ -21,25 +27,22 @@ grid-gap: 32px;
   .card-category a {
     font-size: 1em;
   }
-
-}
-  .cards-show {
+    .cards-show {
     grid-template-columns: 1fr;
   }
-  #ytplayer1 {
-    width: 100%;
-    height: 240px;
-    border: 4px solid white;
-  }
+}
 
 
-// Small devices (landscape phones, 576px and up)
+// Small devices (landscape phones, 414 px and up)
 @media (min-width: 576px) {
   .cards {
     grid-template-columns: 1fr;
   }
   .card-video > img {
     height: 388px;
+  }
+    .cards-show {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -51,6 +54,14 @@ grid-gap: 32px;
   .card-video > img {
     height: 168px;
   }
+ .cards-show {
+    grid-template-columns: 1fr;
+    #ytplayer1 {
+    width: 100%;
+    height: 480px;
+    border: 8px solid white;
+  }
+  }
 }
 
 // Large devices (desktops, 992px and up)
@@ -61,6 +72,14 @@ grid-gap: 32px;
   .card-video > img {
     height: 168px;
   }
+  .cards-show {
+     grid-template-columns: 1fr;
+     #ytplayer1 {
+     width: 640px;
+     height: 360px;
+     border: 8px solid white;
+   }
+   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -71,6 +90,14 @@ grid-gap: 32px;
   .card-video > img {
     height: 168px;
   }
+    .cards-show {
+     grid-template-columns: 1fr;
+     #ytplayer1 {
+     width: 640px;
+     height: 360px;
+     border: 8px solid white;
+   }
+   }
 }
 
 #ytplayer {

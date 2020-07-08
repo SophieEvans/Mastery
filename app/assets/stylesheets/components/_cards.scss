@@ -17,7 +17,7 @@ grid-gap: 32px;
 }
 
 // Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
+@media (min-width: 100px) and (max-width: 414px) {
   .cards {
     grid-template-columns: 1fr;
   }
@@ -33,7 +33,7 @@ grid-gap: 32px;
 }
 
 
-// Small devices (landscape phones, 576px and up)
+// Small devices (landscape phones, 414 px and up)
 @media (min-width: 576px) {
   .cards {
     grid-template-columns: 1fr;

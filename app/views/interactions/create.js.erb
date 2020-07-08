@@ -18,7 +18,7 @@ if (helpfulButton !== null) {
 
 var helpfulCount =  document.getElementById("helpful-count")
 if (helpfulCount !== null) {
-    helpfulCount.innerHTML = "<%= @video.helpful.to_s + " this was helpful" %>"
+    helpfulCount.innerHTML = "<%= "this was helpful " + @video.helpful.to_s %>"
 }
 
 // JS actions for good style button and good style count
@@ -42,7 +42,7 @@ if (styleButton !== null) {
 
 var goodStyleCount =  document.getElementById("good-style-count")
 if (goodStyleCount !== null) {
-    goodStyleCount.innerHTML = "<%= @video.good_style.to_s + " credit for good style" %>"
+    goodStyleCount.innerHTML = "<%= "credit for good style " + @video.good_style.to_s %>"
 }
 
 // JS actions for like and dislike (up and down votes) buttons and count
@@ -87,7 +87,7 @@ if (likeButton !== null && dislikeButton !== null) {
 
 var voteCount =  document.getElementById("vote-count")
 if (voteCount !== null) {
-    voteCount.innerHTML = "<%= @video.rating.to_s + " verified as mastered" %>"
+    voteCount.innerHTML = "<%= "verified as mastered " + @video.rating.to_s %>"
 }
 
 // JS actions for mastered/rewind buttons

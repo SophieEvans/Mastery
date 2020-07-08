@@ -55,8 +55,8 @@ class VideosController < ApplicationController
 
   def dashboard
     @rookie_videos = Video.joins(:sub_category).order(created_at: :desc).where(sub_categories: {difficulty: "rookie"}).uniq {|v| v.sub_category.name}
-    @intermediate_videos = Video.joins(:sub_category).where(sub_categories: {difficulty: "intermediate"}).uniq {|v| v.sub_category.name}
-    @pro_videos = Video.joins(:sub_category).where(sub_categories: {difficulty: "pro"}).uniq {|v| v.sub_category.name}
+    @intermediate_videos = Video.joins(:sub_category).order(created_at: :desc).where(sub_categories: {difficulty: "intermediate"}).uniq {|v| v.sub_category.name}
+    @pro_videos = Video.joins(:sub_category).order(created_at: :desc).where(sub_categories: {difficulty: "pro"}).uniq {|v| v.sub_category.name}
 
     completedRookieVideos = Video.joins(:interactions,:sub_category).where("sub_categories.difficulty = 'rookie' and interactions.user_id = #{current_user.id} and completed = true").uniq {|v| v.sub_category.name}
     @rookie_completed_count = "#{completedRookieVideos.count}/#{@rookie_videos.count}"

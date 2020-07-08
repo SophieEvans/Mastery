@@ -10,7 +10,7 @@ class VideoPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    record.user == user
   end
 
   def destroy?
@@ -22,6 +22,6 @@ class VideoPolicy < ApplicationPolicy
   end
 
   def search?
-    true
+    scope.all
   end
 end

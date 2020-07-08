@@ -42,6 +42,7 @@ class VideosController < ApplicationController
 
   def destroy
     @video = Video.find(params[:id])
+    authorize @video
     @video.external_file.purge
     if @video.destroy
       flash[:notice] = 'Video was successfully deleted.'

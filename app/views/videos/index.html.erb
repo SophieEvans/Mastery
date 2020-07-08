@@ -9,8 +9,26 @@
     <%= link_to "Signup", new_user_registration_path, class: "btn btn-flat-signup" unless user_signed_in? %>
     </div>
   </div>
-  <div class="cards">
+  <div >
     <% if @videos.present? %>
+        <% if params[:query].present? || params[:sub_category]%>
+          <div>
+            <%= form_tag videos_path, method: :get do %>
+              <div id="search-form-control" class="search-form-control form-group">
+              <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find a trick"
+              %>
+              <%= submit_tag "Search", class: "btn btn-flat" do %>
+              <i class="fas fa-search"></i> Search
+              <% end %>
+            <% end %>
+          </div>
+          <%= link_to "Back to category filter", search_videos_path, class: "btn btn-back" %>
+        <% end %>
+      </div>
+      <div class="cards">
       <% @videos.each do |video| %>
         <% video.helpful = 0 if video.helpful.nil? %>
         <% video.good_style = 0 if video.good_style.nil? %>

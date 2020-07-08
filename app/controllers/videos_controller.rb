@@ -54,7 +54,7 @@ class VideosController < ApplicationController
   end
 
   def dashboard
-    @rookie_videos = Video.joins(:sub_category).where(sub_categories: {difficulty: "rookie"}).uniq {|v| v.sub_category.name}
+    @rookie_videos = Video.joins(:sub_category).order(created_at: :desc).where(sub_categories: {difficulty: "rookie"}).uniq {|v| v.sub_category.name}
     @intermediate_videos = Video.joins(:sub_category).where(sub_categories: {difficulty: "intermediate"}).uniq {|v| v.sub_category.name}
     @pro_videos = Video.joins(:sub_category).where(sub_categories: {difficulty: "pro"}).uniq {|v| v.sub_category.name}
 
